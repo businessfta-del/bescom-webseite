@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Industriefunk TETRA &amp; DMR Hamburg | Planung · Installation · Wartung | BESCom</title>
+  <meta name="description" content="Industriefunk Hamburg: TETRA & DMR-Betriebsfunk für Industrie, Hafen & kritische Infrastruktur. Planung, Installation & Wartung seit 1989. Jetzt beraten lassen: 040 2111 9111">
+  <meta name="keywords" content="Industriefunk Hamburg, DMR Betriebsfunk, TETRA Funk Hamburg, Betriebsfunk Planung, DMR Installation, Betriebsfunk Wartung Hamburg, kritische Infrastruktur Funk">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://bescom.de/industriefunk.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://bescom.de/industriefunk.html">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:title" content="Industriefunk TETRA/DMR Hamburg | Planung & Installation | BESCom">
+  <meta property="og:description" content="TETRA- und DMR-Betriebsfunk für Industrie & Hafen in Hamburg. Planung, Installation & Wartung seit 1989. Kostenlose Erstberatung: 040 2111 9111">
+  <meta property="og:image" content="assets/images/Industriefunk-Hero.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Industriefunk TETRA/DMR Hamburg | BESCom Elektronik GmbH">
+  <meta name="twitter:description" content="TETRA- und DMR-Betriebsfunksysteme für Industrie, Hafen & kritische Infrastruktur in Hamburg. Seit 1989.">
+
+  <link rel="preload" as="image" href="assets/images/Industriefunk-Hero.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    /* ── Industriefunk Hero ───────────────────────── */
+    .hero { background: #001220; }
+
+    /* Stärkere Ken-Burns-Variation: leicht diagonaler Drift */
+    .hero--industrie .hero__bg-img {
+      transform-origin: 60% 45%;
+      animation: kenBurnsIndustrie 18s ease-in-out infinite;
+    }
+    @keyframes kenBurnsIndustrie {
+      0%   { transform: scale(1.00) translate(0px,  0px);  }
+      40%  { transform: scale(1.10) translate(-18px, -8px); }
+      100% { transform: scale(1.00) translate(0px,  0px);  }
+    }
+
+    /* Overlay etwas dunkler für bessere Lesbarkeit */
+    .hero--industrie .hero__overlay {
+      background: linear-gradient(
+        135deg,
+        rgba(0,8,20,.72) 0%,
+        rgba(0,18,40,.55) 55%,
+        rgba(0,50,90,.30) 100%
+      );
+    }
+
+    /* Hero-Content Fade-in beim Laden */
+    .hero--industrie .hero__inner {
+      animation: heroFadeUp .9s cubic-bezier(.22,.61,.36,1) both;
+      animation-delay: .15s;
+    }
+    @keyframes heroFadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0);    }
+    }
+
+    /* Parallax-Klasse (per JS gesetzt) */
+    .hero--industrie .hero__bg {
+      will-change: transform;
+      transition: transform .05s linear;
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "LocalBusiness",
+        "@id": "https://bescom.de/#business",
+        "name": "BESCom Elektronik GmbH",
+        "url": "https://bescom.de",
+        "telephone": "+4940211191110",
+        "email": "Industrie@bescom.de",
+        "foundingDate": "1989",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Hermann-Blohm-Str. 3",
+          "addressLocality": "Hamburg",
+          "postalCode": "20457",
+          "addressCountry": "DE"
+        },
+        "geo": { "@type": "GeoCoordinates", "latitude": 53.5461, "longitude": 9.9659 },
+        "openingHoursSpecification": [{
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+          "opens": "08:00", "closes": "17:00"
+        }],
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "5.0",
+          "reviewCount": "47",
+          "bestRating": "5"
+        }
+      },
+      {
+        "@type": "Service",
+        "name": "Industriefunk TETRA/DMR Hamburg – Planung, Installation, Wartung",
+        "description": "TETRA- und DMR-Betriebsfunksysteme für Industrie, Hafen und kritische Infrastruktur in Hamburg. Planung, Installation und Wartung seit 1989.",
+        "provider": { "@id": "https://bescom.de/#business" },
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Industriefunk Leistungen",
+          "itemListElement": [
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Industriefunk Systemplanung & Frequenzbeantragung" }},
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "DMR/TETRA Installation & Inbetriebnahme" }},
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Betriebsfunk Wartung & Bestandspflege" }}
+          ]
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Startseite", "item": "https://bescom.de/" },
+          { "@type": "ListItem", "position": 2, "name": "Industriefunk", "item": "https://bescom.de/industriefunk.html" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Was ist der Unterschied zwischen TETRA und DMR Betriebsfunk?",
+            "acceptedAnswer": { "@type": "Answer", "text": "TETRA (Terrestrial Trunked Radio) ist ein digitales Bündelfunksystem für Großnutzer wie Behörden und Großunternehmen – mit hoher Sicherheit und Gesprächsgruppen-Funktion. DMR (Digital Mobile Radio) ist kosteneffizienter und für kleinere bis mittlere Betriebe ideal. Beide Standards sind digital, verschlüsselt und deutlich leistungsfähiger als analoger Funk. BESCom berät Sie, welches System zu Ihrem Betrieb passt." }
+          },
+          {
+            "@type": "Question",
+            "name": "Wie lange dauert die Frequenzgenehmigung bei der Bundesnetzagentur?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Die Bearbeitungszeit bei der Bundesnetzagentur (BNetzA) für eine Frequenzzuteilung beträgt je nach Auslastung 4–12 Wochen. BESCom erstellt alle notwendigen Antragsunterlagen, reicht sie vollständig ein und koordiniert Rückfragen mit der Behörde – damit Sie sich auf Ihr Kerngeschäft konzentrieren können." }
+          },
+          {
+            "@type": "Question",
+            "name": "Ab welcher Unternehmensgröße lohnt sich ein eigenes Betriebsfunksystem?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Ein eigenes Betriebsfunksystem lohnt sich ab ca. 10–15 gleichzeitigen Nutzern, bei räumlich verteilten Standorten oder in Bereichen ohne zuverlässige Mobilfunkabdeckung – z. B. Lagerhallen, Produktionsflächen oder Hafenanlagen. Im Vergleich zu Mobilfunk bietet Betriebsfunk keine laufenden SIM-Kosten, sofortige Gruppenrufe und höhere Ausfallsicherheit." }
+          },
+          {
+            "@type": "Question",
+            "name": "Kann BESCom auch Betriebsfunksysteme anderer Hersteller warten?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Ja. BESCom übernimmt die Wartung und Bestandspflege von Betriebsfunksystemen aller gängigen Hersteller – auch wenn die Anlage nicht von uns installiert wurde. Wir erfassen die Anlage vollständig, erstellen eine Bestandsdokumentation und etablieren präventive Wartungsintervalle." }
+          },
+          {
+            "@type": "Question",
+            "name": "Ist Betriebsfunk sicherer als Mobilfunk für Industrieanlagen?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Für industrielle Umgebungen bietet Betriebsfunk entscheidende Vorteile: Er funktioniert unabhängig von Mobilfunknetzen, ist verschlüsselt, ermöglicht Sofort-Gruppenrufe an alle Mitarbeiter gleichzeitig und ist auch in Stahl- und Betonstrukturen zuverlässig. Im Notfall ist Betriebsfunk das robustere System – ohne Überlastungsrisiko wie im öffentlichen Mobilfunknetz." }
+          },
+          {
+            "@type": "Question",
+            "name": "Was kostet ein DMR-Betriebsfunksystem für eine Industrieanlage?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Die Kosten hängen von der Anzahl der Nutzer, Standortgröße, Ausbauzustand und gewünschten Funktionen ab – eine pauschale Angabe wäre nicht seriös. BESCom analysiert Ihren Bedarf kostenlos und erstellt ein verbindliches Festpreisangebot, das exakt auf Ihren Betrieb zugeschnitten ist. Kontakt: 040 2111 9111." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <header class="nav" role="banner">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo" aria-label="BESCom Startseite">
+        <img src="assets/images/BESCom-Logo.png" alt="BESCom Logo" width="120" height="40" loading="eager" onerror="this.style.display='none'">
+        <span class="nav__logo-text">BESCom Elektronik</span>
+      </a>
+      <nav class="nav__menu" aria-label="Hauptnavigation">
+        <a href="bos-objektfunk.html"   class="nav__link">BOS-Objektfunk</a>
+        <a href="industriefunk.html"    class="nav__link active">Industriefunk</a>
+        <a href="lte-campusnetz.html"   class="nav__link">LTE-Campusnetz</a>
+        <a href="handfunkgeraete.html"  class="nav__link">Handfunkgeräte</a>
+        <a href="blog.html"            class="nav__link">Blog</a>
+      <a href="index.html#ueber-uns"  class="nav__link">Über uns</a>
+        <a href="#kontakt"              class="nav__link">Kontakt</a>
+      </nav>
+      <div class="nav__actions">
+        <a href="#kontakt" class="btn btn--primary">Jetzt anfragen</a>
+      </div>
+      <button class="nav__toggle" aria-label="Menü öffnen">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <nav class="nav__drawer">
+      <a href="bos-objektfunk.html"   class="nav__link">BOS-Objektfunk</a>
+      <a href="industriefunk.html"    class="nav__link">Industriefunk</a>
+      <a href="lte-campusnetz.html"   class="nav__link">LTE-Campusnetz</a>
+      <a href="handfunkgeraete.html"  class="nav__link">Handfunkgeräte</a>
+      <a href="blog.html"             class="nav__link">Blog</a>
+      <a href="index.html#ueber-uns"  class="nav__link">Über uns</a>
+      <a href="#kontakt"              class="nav__link">Kontakt</a>
+      <a href="#kontakt" class="btn btn--primary mt-24">Jetzt anfragen</a>
+    </nav>
+    <div class="nav__overlay" aria-hidden="true"></div>
+  </header>
+
+
+  <!-- HERO -->
+  <section class="hero hero--industrie" id="hero-industrie" aria-labelledby="hero-title">
+    <div class="hero__bg" id="heroParallaxBg">
+      <img class="hero__bg-img"
+           src="assets/images/Industriefunk-Hero.jpg"
+           alt="BESCom Techniker auf Hubsteiger installiert DMR-Antenne in Industriehalle"
+           width="1920" height="1080"
+           loading="eager"
+           fetchpriority="high">
+    </div>
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+      <div class="hero__inner">
+        <div class="hero__badge">Industriefunk · TETRA · DMR · Hamburg</div>
+        <h1 class="hero__title" id="hero-title">
+          Wenn der Funk ausfällt,<br>steht der Betrieb.
+        </h1>
+        <p class="hero__sub">
+          Funkprobleme in der Industriehalle? Schlechte Betriebsfunkabdeckung auf dem Außengelände?
+          BESCom plant, installiert und wartet TETRA- und DMR-Funklösungen für Industrie, Hafen
+          und kritische Infrastruktur – zuverlässig auch unter härtesten Bedingungen.
+        </p>
+        <div class="hero__cta">
+          <a href="#kontakt" class="btn btn--primary">Jetzt Termin anfragen</a>
+          <a href="#planung"  class="btn btn--outline">Leistungen ansehen</a>
+        </div>
+        <div class="hero__trust">
+          <span class="hero__trust-stars">★★★★★</span>
+          <span>Über 200 realisierte Projekte · BODeV-zertifiziert · ISO 9001</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ANCHOR-TABS -->
+  <div class="anchor-tabs" role="navigation" aria-label="Seitenabschnitte">
+    <div class="anchor-tabs__inner">
+      <a href="#planung"      class="anchor-tab active">Planung</a>
+      <a href="#installation" class="anchor-tab">Installation</a>
+      <a href="#wartung"      class="anchor-tab">Wartung</a>
+      <a href="#kontakt"      class="anchor-tab">Kontakt</a>
+    </div>
+  </div>
+
+
+  <!-- ======================================================
+       SEKTION 1: PLANUNG
+       ====================================================== -->
+  <section class="section" id="planung" aria-labelledby="planung-title">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <p style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--color-accent);">Schritt 1</p>
+        <h2 id="planung-title">Systemplanung &amp; Frequenzbeantragung</h2>
+        <p>Vom analogen Betriebsfunk zu DMR oder TETRA – mit klarer Migrationsstrategie und vollständiger Frequenzbeantragung bei der BNetzA.</p>
+      </div>
+
+      <div class="service-detail">
+        <div data-aos="fade-right">
+          <div class="pain-box">
+            <div class="pain-box__label">Das Problem ohne erfahrenen Partner</div>
+            <p>
+              Ihr analoges Betriebsfunksystem stößt an seine Grenzen? Schlechte Funkverbindung
+              in der Industriehalle oder auf dem Außengelände? Die Migration zu DMR oder TETRA
+              klingt komplex – und die Frequenzbeantragung bei der Bundesnetzagentur noch komplexer.
+              Ohne erfahrenen Partner riskieren Sie Monate Verzögerung und eine teure Fehlinvestition.
+            </p>
+          </div>
+
+          <h3 class="solution-title">Unsere Lösung: Klare Migrationsstrategie</h3>
+          <p style="color:var(--color-text-muted);font-size:15px;">
+            Wir analysieren Ihren Standort, planen das passende TETRA- oder DMR-System
+            und übernehmen die Frequenzbeantragung bei der Bundesnetzagentur vollständig.
+          </p>
+
+          <ul class="icon-list mt-24">
+            <li>Standortanalyse &amp; Funkfeld-Simulation</li>
+            <li>Systemplanung TETRA / DMR</li>
+            <li>Frequenzbeantragung bei der BNetzA</li>
+            <li>Migrationsstrategie für Bestandssysteme</li>
+            <li>Kostenplanung &amp; ROI-Berechnung</li>
+          </ul>
+
+          <a href="#kontakt" class="btn btn--primary mt-32">Planung anfragen</a>
+        </div>
+
+        <div data-aos="fade-left">
+          <h3 style="font-size:20px;font-weight:700;margin-bottom:24px;">Das sagen unsere Kunden</h3>
+          <div class="testimonials-grid">
+            <div class="testimonial-card">
+              <div class="testimonial-card__stars">★★★★★</div>
+              <p class="testimonial-card__quote">
+                „BESCom hat unsere Migration von analog zu DMR vollständig geplant und die
+                Frequenzbeantragung übernommen. Innerhalb von sechs Wochen hatten wir Klarheit."
+              </p>
+              <div class="testimonial-card__author">
+                <div class="testimonial-card__avatar">HB</div>
+                <div>
+                  <div class="testimonial-card__name">Henrik B.</div>
+                  <div class="testimonial-card__role">Betriebsleiter, Hafenlogistik Hamburg</div>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="testimonial-card__stars">★★★★★</div>
+              <p class="testimonial-card__quote">
+                „Die Standortanalyse war präzise und der Systemvorschlag passte genau
+                zu unseren Anforderungen. Kein Overengineering, keine Lücken."
+              </p>
+              <div class="testimonial-card__author">
+                <div class="testimonial-card__avatar">RT</div>
+                <div>
+                  <div class="testimonial-card__name">Ralf T.</div>
+                  <div class="testimonial-card__role">Technischer Leiter, Industriewerk Norddeutschland</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ======================================================
+       SEKTION 2: INSTALLATION
+       ====================================================== -->
+  <section class="section section--soft" id="installation" aria-labelledby="installation-title">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <p style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--color-accent);">Schritt 2</p>
+        <h2 id="installation-title">Installation &amp; Inbetriebnahme</h2>
+        <p>Kein Empfang in Stahlhallen oder auf dem Außengelände? Multi-Site-Installation unter laufenden Produktionsbedingungen – ohne Betriebsunterbrechung.</p>
+      </div>
+
+      <div class="service-detail">
+        <div data-aos="fade-right">
+          <div class="pain-box">
+            <div class="pain-box__label">Die Herausforderung in der Industrie</div>
+            <p>
+              Stahlhallen, Außenbereiche, mehrere Standorte – Industrieumgebungen sind für
+              Funksysteme die härteste Prüfung. Funklöcher in der Halle, tote Winkel auf dem Gelände,
+              Interferenzen zwischen Systemen: Ohne Erfahrung entstehen kostspielige Nachbesserungen
+              und im schlimmsten Fall ein Betriebsfunksystem, das im Ernstfall nicht funktioniert.
+            </p>
+          </div>
+
+          <h3 class="solution-title">Unsere Lösung: Professionelle Multi-Site-Installation</h3>
+          <p style="color:var(--color-text-muted);font-size:15px;">
+            Wir installieren vernetzt, testen unter realen Betriebsbedingungen und
+            schulen Ihre Mitarbeiter – damit das System vom ersten Tag an zuverlässig funktioniert.
+          </p>
+
+          <ul class="icon-list mt-24">
+            <li>Installation unter laufenden Produktionsbedingungen</li>
+            <li>Multi-Site- und Multi-Zone-Vernetzung</li>
+            <li>Antennenplanung für Stahl- &amp; Betonumgebungen</li>
+            <li>Mitarbeiterschulung &amp; Geräteeinweisung</li>
+            <li>Vollständige Inbetriebnahmedokumentation</li>
+          </ul>
+
+          <a href="#kontakt" class="btn btn--primary mt-32">Installation anfragen</a>
+        </div>
+
+        <div data-aos="fade-left">
+          <h3 style="font-size:20px;font-weight:700;margin-bottom:24px;">Das sagen unsere Kunden</h3>
+          <div class="testimonials-grid">
+            <div class="testimonial-card">
+              <div class="testimonial-card__stars">★★★★★</div>
+              <p class="testimonial-card__quote">
+                „Die Installation in unserer Stahlhalle war eine echte Herausforderung.
+                BESCom hat das Problem technisch perfekt gelöst – kein einziger toter Winkel."
+              </p>
+              <div class="testimonial-card__author">
+                <div class="testimonial-card__avatar">CE</div>
+                <div>
+                  <div class="testimonial-card__name">Christine E.</div>
+                  <div class="testimonial-card__role">Werkleiterin, Produktionsanlage Norddeutschland</div>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="testimonial-card__stars">★★★★★</div>
+              <p class="testimonial-card__quote">
+                „Drei Standorte, eine Inbetriebnahme. BESCom hat alles koordiniert – wir mussten
+                uns um nichts kümmern und konnten weiter produzieren."
+              </p>
+              <div class="testimonial-card__author">
+                <div class="testimonial-card__avatar">JS</div>
+                <div>
+                  <div class="testimonial-card__name">Jörg S.</div>
+                  <div class="testimonial-card__role">Betriebstechniker, Energieversorgungsunternehmen</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ======================================================
+       SEKTION 3: WARTUNG
+       ====================================================== -->
+  <section class="section" id="wartung" aria-labelledby="wartung-title">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <p style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--color-accent);">Schritt 3</p>
+        <h2 id="wartung-title">Wartung &amp; Bestandspflege</h2>
+        <p>Wir dokumentieren, überwachen und warten Ihre Betriebsfunkanlage – damit ein Ausfall nicht kommt, wenn er am wenigsten passt.</p>
+      </div>
+
+      <div class="service-detail">
+        <div data-aos="fade-right">
+          <div class="pain-box">
+            <div class="pain-box__label">Der klassische Vorbote eines Ausfalls</div>
+            <p>
+              Techniker-Wechsel, fehlende Dokumentation, unbekannte Anlagenzustände –
+              das sind die klassischen Vorboten eines Systemausfalls. Viele Betriebe merken es
+              erst, wenn der Funk im laufenden Betrieb ausfällt: teuer, gefährlich, vermeidbar.
+            </p>
+          </div>
+
+          <h3 class="solution-title">Unsere Lösung: Präventive Bestandswartung</h3>
+          <p style="color:var(--color-text-muted);font-size:15px;">
+            Wir lernen Ihre Anlage kennen, erstellen vollständige Bestandsdokumentationen
+            und etablieren eine präventive Wartungsroutine – auch für Anlagen, die wir
+            nicht selbst installiert haben.
+          </p>
+
+          <ul class="icon-list mt-24">
+            <li>Anlage erfassen &amp; Bestandsdokumentation erstellen</li>
+            <li>Präventive Wartungsintervalle nach Herstellervorgaben</li>
+            <li>Firmware-Updates &amp; Gerätemanagement</li>
+            <li>Störungsmeldung &amp; Fehlerdiagnose</li>
+            <li>Wartungsprotokoll für behördliche Anforderungen</li>
+          </ul>
+
+          <a href="#kontakt" class="btn btn--primary mt-32">Wartungsvertrag anfragen</a>
+        </div>
+
+        <div data-aos="fade-left">
+          <h3 style="font-size:20px;font-weight:700;margin-bottom:24px;">Das sagen unsere Kunden</h3>
+          <div class="testimonials-grid">
+            <div class="testimonial-card">
+              <div class="testimonial-card__stars">★★★★★</div>
+              <p class="testimonial-card__quote">
+                „BESCom hat eine fremde Anlage komplett dokumentiert und in die Wartung übernommen.
+                Innerhalb von einem Monat wussten wir mehr über unsere eigene Infrastruktur als vorher."
+              </p>
+              <div class="testimonial-card__author">
+                <div class="testimonial-card__avatar">MF</div>
+                <div>
+                  <div class="testimonial-card__name">Michael F.</div>
+                  <div class="testimonial-card__role">IT-Leiter, Chemiewerk Hamburg</div>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="testimonial-card__stars">★★★★★</div>
+              <p class="testimonial-card__quote">
+                „Seit dem Wartungsvertrag mit BESCom hatten wir keinen ungeplanten Ausfall mehr.
+                Das System läuft – und wir wissen immer warum."
+              </p>
+              <div class="testimonial-card__author">
+                <div class="testimonial-card__avatar">TL</div>
+                <div>
+                  <div class="testimonial-card__name">Tobias L.</div>
+                  <div class="testimonial-card__role">Betriebsingenieur, Entsorgungsunternehmen</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- REFERENZ-LOGO-BAND -->
+  <section class="section section--soft" aria-label="Referenzkunden">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <h2>Vertrauen führender Unternehmen</h2>
+      </div>
+    </div>
+    <div class="logo-band">
+      <div class="logo-band__track">
+        <span class="logo-band__item">VW Volkswagen</span>
+        <span class="logo-band__item">Bilfinger &amp; Berger</span>
+        <span class="logo-band__item">HPA Hamburg Port Authority</span>
+        <span class="logo-band__item">Apelona</span>
+        <span class="logo-band__item">Engie</span>
+        <span class="logo-band__item">Stadtwerke Wedel</span>
+        <span class="logo-band__item">Strabag</span>
+        <span class="logo-band__item">Pembroke</span>
+        <span class="logo-band__item" aria-hidden="true">VW Volkswagen</span>
+        <span class="logo-band__item" aria-hidden="true">Bilfinger &amp; Berger</span>
+        <span class="logo-band__item" aria-hidden="true">HPA Hamburg Port Authority</span>
+        <span class="logo-band__item" aria-hidden="true">Apelona</span>
+        <span class="logo-band__item" aria-hidden="true">Engie</span>
+        <span class="logo-band__item" aria-hidden="true">Stadtwerke Wedel</span>
+        <span class="logo-band__item" aria-hidden="true">Strabag</span>
+        <span class="logo-band__item" aria-hidden="true">Pembroke</span>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ZERTIFIKATE -->
+  <section class="section" aria-labelledby="cert-title-ind">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <h2 id="cert-title-ind">Zugelassen. Geprüft. Zertifiziert.</h2>
+        <p>Als BODeV-Mitglied und ISO-9001-zertifiziertes Unternehmen arbeiten wir nach den höchsten Standards.</p>
+      </div>
+      <div class="cert-single" data-aos="fade-up">
+        <img src="assets/images/Zertiffizierungen.jpg"
+             alt="BESCom Zertifizierungen: BODeV-Mitglied, ISO 9001, Gütesiegel Objektfunk, PMeV"
+             width="800" height="300" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+
+  <!-- KONTAKT -->
+  <section class="contact-section" id="kontakt" aria-labelledby="kontakt-title-ind">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info" data-aos="fade-right">
+          <p style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--color-accent);margin-bottom:12px;">
+            Kontakt Industriefunk
+          </p>
+          <h2 id="kontakt-title-ind">Jetzt Projekt besprechen</h2>
+          <p class="text-muted mt-16" style="font-size:16px;">
+            Kostenlose Erstberatung · Antwort innerhalb von 24 Stunden · Kein Verkaufsdruck
+          </p>
+          <div class="mt-32">
+            <div class="contact-info__item">
+              <div class="contact-info__icon">📍</div>
+              <div>
+                <div class="contact-info__label">Adresse</div>
+                <div class="contact-info__value">BESCom Elektronik GmbH<br>Hermann-Blohm-Str. 3, 20457 Hamburg</div>
+              </div>
+            </div>
+            <div class="contact-info__item">
+              <div class="contact-info__icon">📞</div>
+              <div>
+                <div class="contact-info__label">Telefon</div>
+                <div class="contact-info__value"><a href="tel:+4940211191110">040 2111 9111</a></div>
+              </div>
+            </div>
+            <div class="contact-info__item">
+              <div class="contact-info__icon">📧</div>
+              <div>
+                <div class="contact-info__label">E-Mail Industriefunk</div>
+                <div class="contact-info__value"><a href="mailto:Industrie@bescom.de">Industrie@bescom.de</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div data-aos="fade-left">
+          <form class="contact-form js-contact-form" data-email="Industrie@bescom.de" novalidate>
+            <div class="form-row form-row--2">
+              <div class="form-group">
+                <label class="form-label" for="name">Vor- und Nachname <sup>*</sup></label>
+                <input class="form-control" type="text" id="name" name="name" placeholder="Max Mustermann" required autocomplete="name">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="firma">Firma <sup>*</sup></label>
+                <input class="form-control" type="text" id="firma" name="firma" placeholder="Muster GmbH" required autocomplete="organization">
+              </div>
+            </div>
+            <div class="form-row form-row--2">
+              <div class="form-group">
+                <label class="form-label" for="telefon">Telefon <sup>*</sup></label>
+                <input class="form-control" type="tel" id="telefon" name="telefon" placeholder="+49 40 123456" required autocomplete="tel">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="email">E-Mail <sup>*</sup></label>
+                <input class="form-control" type="email" id="email" name="email" placeholder="m.mustermann@firma.de" required autocomplete="email">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="leistung">Gewünschte Leistung</label>
+                <select class="form-control" id="leistung" name="leistung">
+                  <option value="">Bitte wählen …</option>
+                  <option value="Industriefunk – Planung">Industriefunk – Planung</option>
+                  <option value="Industriefunk – Installation">Industriefunk – Installation</option>
+                  <option value="Industriefunk – Wartung">Industriefunk – Wartung</option>
+                  <option value="Sonstiges">Sonstiges</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="nachricht">Ihre Nachricht</label>
+                <textarea class="form-control" id="nachricht" name="nachricht" placeholder="Beschreiben Sie Ihren Standort und Ihre Anforderungen …"></textarea>
+              </div>
+            </div>
+            <div class="form-row">
+              <label class="form-checkbox">
+                <input type="checkbox" name="datenschutz" required>
+                <span>Ich habe die <a href="datenschutz.html">Datenschutzerklärung</a> gelesen und stimme zu. <sup>*</sup></span>
+              </label>
+            </div>
+            <div class="form-submit">
+              <button type="submit" class="btn btn--primary">📤 Anfrage absenden</button>
+            </div>
+            <div class="form-success" role="alert">
+              ✅ Vielen Dank! Ihr E-Mail-Programm öffnet sich mit Ihrer vorausgefüllten Anfrage.
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FAQ -->
+  <section class="section section--soft" id="faq" aria-labelledby="faq-ind-title">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <h2 id="faq-ind-title">Häufige Fragen zu Industriefunk TETRA &amp; DMR</h2>
+        <p>Antworten auf die wichtigsten Fragen rund um Betriebsfunksysteme für Industrie und Hafen.</p>
+      </div>
+      <div class="faq-list" data-aos="fade-up">
+
+        <div class="faq-item">
+          <button class="faq-question">Was ist der Unterschied zwischen TETRA und DMR Betriebsfunk?</button>
+          <div class="faq-answer"><p>TETRA (Terrestrial Trunked Radio) ist ein digitales Bündelfunksystem für Großnutzer – mit hoher Sicherheit und Gesprächsgruppen-Funktion. DMR (Digital Mobile Radio) ist kosteneffizienter und für kleinere bis mittlere Betriebe ideal. Beide Standards sind digital, verschlüsselt und deutlich leistungsfähiger als analoger Funk. BESCom berät Sie, welches System zu Ihrem Betrieb passt.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">Wie lange dauert die Frequenzgenehmigung bei der Bundesnetzagentur?</button>
+          <div class="faq-answer"><p>Die Bearbeitungszeit bei der Bundesnetzagentur (BNetzA) für eine Frequenzzuteilung beträgt je nach Auslastung 4–12 Wochen. BESCom erstellt alle notwendigen Antragsunterlagen, reicht sie vollständig ein und koordiniert Rückfragen – damit Sie sich auf Ihr Kerngeschäft konzentrieren können.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">Ab welcher Unternehmensgröße lohnt sich ein eigenes Betriebsfunksystem?</button>
+          <div class="faq-answer"><p>Ein eigenes Betriebsfunksystem lohnt sich ab ca. 10–15 gleichzeitigen Nutzern, bei räumlich verteilten Standorten oder in Bereichen ohne zuverlässige Mobilfunkabdeckung – z. B. Lagerhallen, Produktionsflächen oder Hafenanlagen. Im Vergleich zu Mobilfunk bietet Betriebsfunk keine laufenden SIM-Kosten, sofortige Gruppenrufe und höhere Ausfallsicherheit.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">Ist Betriebsfunk sicherer als Mobilfunk für Industrieanlagen?</button>
+          <div class="faq-answer"><p>Für industrielle Umgebungen bietet Betriebsfunk entscheidende Vorteile: Er funktioniert unabhängig von öffentlichen Mobilfunknetzen, ist verschlüsselt, ermöglicht Sofort-Gruppenrufe an alle Mitarbeiter gleichzeitig und ist auch in Stahl- und Betonstrukturen zuverlässig. Im Notfall ist Betriebsfunk das robustere System – ohne Überlastungsrisiko.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">Was kostet ein DMR-Betriebsfunksystem?</button>
+          <div class="faq-answer"><p>Das lässt sich pauschal nicht seriös beziffern – die Investition hängt von der Anzahl der Nutzer, der Standortgröße, dem Ausbauzustand und den gewünschten Funktionen ab. Jeder Betrieb ist anders. Was wir garantieren: Nach einem kostenlosen Erstgespräch erhalten Sie ein verbindliches Festpreisangebot – exakt auf Ihren Bedarf zugeschnitten, ohne Standardpakete und ohne versteckte Folgekosten. Rufen Sie uns an: <a href="tel:+4940211191110">040 2111 9111</a>.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">Kann BESCom Betriebsfunksysteme anderer Hersteller warten?</button>
+          <div class="faq-answer"><p>Ja. BESCom übernimmt die Wartung und Bestandspflege von Betriebsfunksystemen aller gängigen Hersteller – auch wenn die Anlage nicht von uns installiert wurde. Wir erfassen die Anlage vollständig, erstellen eine Bestandsdokumentation und etablieren präventive Wartungsintervalle nach Herstellervorgaben.</p></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <div class="footer__logo">
+          <img src="assets/images/BESCom-Logo.png" alt="BESCom Logo" width="100" height="34" loading="lazy" onerror="this.style.display='none'">
+          <span class="footer__logo-name">BESCom Elektronik GmbH</span>
+        </div>
+        <p class="footer__tagline">Gegründet 1989 · Hamburg</p>
+      </div>
+      <div>
+        <p class="footer__col-title">Leistungen</p>
+        <ul class="footer__links">
+          <li><a href="bos-objektfunk.html">BOS-Objektfunk</a></li>
+          <li><a href="industriefunk.html">Industriefunk TETRA/DMR</a></li>
+          <li><a href="lte-campusnetz.html">LTE-Campusnetz</a></li>
+          <li><a href="handfunkgeraete.html">Handfunkgeräte</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">Kontakt</p>
+        <div class="footer__contact-item"><span class="footer__contact-icon">📍</span><span>Hermann-Blohm-Str. 3, 20457 Hamburg</span></div>
+        <div class="footer__contact-item"><span class="footer__contact-icon">📞</span><a href="tel:+4940211191110">040 2111 9111</a></div>
+        <div class="footer__contact-item"><span class="footer__contact-icon">📧</span><a href="mailto:Industrie@bescom.de">Industrie@bescom.de</a></div>
+      </div>
+      <div>
+        <p class="footer__col-title">Rechtliches</p>
+        <ul class="footer__links">
+          <li><a href="impressum.html">Impressum</a></li>
+          <li><a href="datenschutz.html">Datenschutzerklärung</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2025 BESCom Elektronik GmbH · Hamburg</span>
+      <span><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></span>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <!-- Cookie Banner -->
+  <div id="cookieBanner" class="cookie-banner" role="dialog" aria-label="Datenschutzeinstellungen">
+    <div class="cookie-banner__inner">
+      <div class="cookie-banner__left">
+        <div class="cookie-banner__title">🍪 Datenschutzeinstellungen</div>
+        <p class="cookie-banner__text">
+          Wir nutzen Cookies auf unserer Website. Einige von ihnen sind essenziell, während andere uns helfen, diese Website und Ihre Erfahrung zu verbessern.
+          Wenn Sie unter 16 Jahre alt sind und Ihre Zustimmung zu freiwilligen Diensten geben möchten, müssen Sie Ihre Erziehungsberechtigten um Erlaubnis bitten.
+          Weitere Informationen finden Sie in unserer <a href="datenschutz.html">Datenschutzerklärung</a>.
+        </p>
+        <div class="cookie-banner__checks">
+          <label class="cookie-check">
+            <input type="checkbox" id="cookieEssenziell" checked disabled>
+            Essenziell
+          </label>
+          <label class="cookie-check" id="cookieExtra" style="display:none;">
+            <input type="checkbox" id="cookieStatistiken">
+            Statistiken
+          </label>
+          <label class="cookie-check" id="cookieExtraMedia" style="display:none;">
+            <input type="checkbox" id="cookieExterneMedien">
+            Externe Medien
+          </label>
+        </div>
+      </div>
+      <div class="cookie-banner__actions">
+        <button id="cookieAcceptAll" class="btn btn--primary">Alle akzeptieren</button>
+        <button id="cookieSave"      class="btn btn--dark">Speichern</button>
+        <button id="cookieIndividual" class="btn btn--ghost">Individuelle Datenschutzeinstellungen</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Sticky CTA -->
+  <div class="mobile-sticky-cta" role="complementary" aria-label="Schnellkontakt">
+    <a href="tel:+4940211191110" class="mobile-sticky-cta__phone">📞 040 2111 9111</a>
+    <a href="#kontakt" class="mobile-sticky-cta__btn btn btn--primary">Jetzt anfragen</a>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/cookie-banner.js"></script>
+  <script>
+    // FAQ Accordion
+    document.querySelectorAll('.faq-question').forEach(function(btn) {
+      btn.setAttribute('aria-expanded', 'false');
+      btn.addEventListener('click', function() {
+        var item = this.closest('.faq-item');
+        var isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item.open').forEach(function(el) { el.classList.remove('open'); });
+        if (!isOpen) { item.classList.add('open'); }
+        this.setAttribute('aria-expanded', String(!isOpen));
+      });
+    });
+  </script>
+
+  <!-- Parallax für Industriefunk-Hero -->
+  <script>
+    (function () {
+      var bg   = document.getElementById('heroParallaxBg');
+      var hero = document.getElementById('hero-industrie');
+      if (!bg || !hero || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+      var ticking = false;
+      window.addEventListener('scroll', function () {
+        if (!ticking) {
+          window.requestAnimationFrame(function () {
+            var scrollY  = window.scrollY;
+            var heroH    = hero.offsetHeight;
+            if (scrollY <= heroH) {
+              // Parallax: Hintergrund bewegt sich halb so schnell wie der Scroll
+              bg.style.transform = 'translateY(' + (scrollY * 0.35) + 'px)';
+            }
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }, { passive: true });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Funkfeldmessung BOS-Anlage: Was gemessen wird – und warum Lücken gefährlich sind | BESCom Blog</title>
+  <meta name="description" content="Eine Funkfeldmessung nach DIN 14024 ist mehr als ein Rundgang mit Messgerät. Was genau gemessen wird, welche Feldstärken vorgeschrieben sind und warum bauliche Veränderungen sofort neu gemessen werden müssen.">
+  <meta name="keywords" content="BOS Funkfeldmessung, DIN 14024 Messung, Feldstärke BOS, BOS Anlage Versorgungslücke, Gebäudefunk Messung Hamburg">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://bescom.de/blog-bos-wartung-messung.html">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://bescom.de/blog-bos-wartung-messung.html">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:title" content="Funkfeldmessung BOS-Anlage: Was gemessen wird – und warum Lücken gefährlich sind">
+  <meta property="og:description" content="Eine Funkfeldmessung nach DIN 14024 ist mehr als ein Rundgang mit Messgerät. Was die Norm konkret fordert, welche Stellen am häufigsten Lücken zeigen und was bei Umbauten passiert.">
+  <meta property="og:image" content="assets/images/BOS-Objektfunkanlage.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Funkfeldmessung BOS-Anlage: Was gemessen wird – und warum Lücken gefährlich sind",
+    "description": "Eine Funkfeldmessung nach DIN 14024 ist mehr als ein Rundgang mit Messgerät. Was die Norm konkret fordert und warum bauliche Veränderungen sofort neu gemessen werden müssen.",
+    "image": "https://bescom.de/assets/images/BOS-Objektfunkanlage.jpg",
+    "datePublished": "2026-04-18",
+    "dateModified": "2026-04-18",
+    "author": { "@type": "Organization", "name": "BESCom Elektronik GmbH" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "BESCom Elektronik GmbH",
+      "url": "https://bescom.de"
+    },
+    "mainEntityOfPage": "https://bescom.de/blog-bos-wartung-messung.html",
+    "keywords": "Funkfeldmessung BOS, DIN 14024, Feldstärke Objektfunk, BOS Versorgungslücke"
+  }
+  </script>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <header class="nav" role="banner">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo" aria-label="BESCom Startseite">
+        <img src="assets/images/BESCom-Logo.png" alt="BESCom Logo" width="120" height="40" loading="eager" onerror="this.style.display='none'">
+        <span class="nav__logo-text">BESCom Elektronik</span>
+      </a>
+      <nav class="nav__menu" aria-label="Hauptnavigation">
+        <a href="bos-objektfunk.html"  class="nav__link">BOS-Objektfunk</a>
+        <a href="industriefunk.html"   class="nav__link">Industriefunk</a>
+        <a href="lte-campusnetz.html"  class="nav__link">LTE-Campusnetz</a>
+        <a href="handfunkgeraete.html" class="nav__link">Handfunkgeräte</a>
+        <a href="blog.html"            class="nav__link active">Blog</a>
+        <a href="index.html#ueber-uns" class="nav__link">Über uns</a>
+        <a href="bos-objektfunk.html#kontakt" class="nav__link">Kontakt</a>
+      </nav>
+      <div class="nav__actions">
+        <a href="bos-objektfunk.html#kontakt" class="btn btn--primary">Jetzt anfragen</a>
+      </div>
+      <button class="nav__toggle" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
+    </div>
+    <nav class="nav__drawer">
+      <a href="bos-objektfunk.html"  class="nav__link">BOS-Objektfunk</a>
+      <a href="industriefunk.html"   class="nav__link">Industriefunk</a>
+      <a href="lte-campusnetz.html"  class="nav__link">LTE-Campusnetz</a>
+      <a href="handfunkgeraete.html" class="nav__link">Handfunkgeräte</a>
+      <a href="blog.html"            class="nav__link">Blog</a>
+      <a href="index.html#ueber-uns" class="nav__link">Über uns</a>
+      <a href="bos-objektfunk.html#kontakt" class="btn btn--primary mt-24">Jetzt anfragen</a>
+    </nav>
+    <div class="nav__overlay" aria-hidden="true"></div>
+  </header>
+
+
+  <!-- ARTIKEL HERO -->
+  <div class="article-hero">
+    <img class="article-hero__img" src="assets/images/BOS-Objektfunkanlage.jpg"
+         alt="Funkfeldmessung BOS-Anlage" loading="eager" fetchpriority="high">
+    <div class="article-hero__overlay"></div>
+    <div class="article-hero__content">
+      <nav class="article-breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Startseite</a>
+        <span class="article-breadcrumb__sep">›</span>
+        <a href="blog.html">Blog</a>
+        <span class="article-breadcrumb__sep">›</span>
+        <span>Funkfeldmessung BOS-Anlage</span>
+      </nav>
+      <div class="article-tag">BOS-Objektfunk</div>
+      <h1 class="article-hero__title">Funkfeldmessung BOS-Anlage: Was gemessen wird – und warum Versorgungslücken im Ernstfall Leben kosten</h1>
+      <div class="article-meta">
+        <span>🗓️ 18. April 2026</span>
+        <span>·</span>
+        <span>⏱ 10 Min. Lesezeit</span>
+        <span>·</span>
+        <span>✏️ BESCom Elektronik GmbH</span>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ARTIKEL LAYOUT -->
+  <div class="article-layout">
+
+    <!-- HAUPTINHALT -->
+    <main class="article-content" id="artikel-inhalt">
+
+      <p>Die BOS-Anlage ist installiert, abgenommen, in Betrieb. Drei Jahre später baut der Mieter im 2. Obergeschoss einen neuen Serverraum ein – mit massiver Metallverkleidung, dichtem Doppelboden, bleierten Türen. <strong>Niemand informiert den Gebäudebetreiber. Niemand misst nach.</strong></p>
+
+      <p>Beim nächsten Brandeinsatz können die Einsatzkräfte im Serverraum nicht über Funk kommunizieren. Die BOS-Anlage ist technisch intakt – aber der neue Raum liegt in einer Funkschatten-Zone, die bei der letzten Messung noch nicht existierte.</p>
+
+      <p>Dieses Szenario beschreibt eine der häufigsten Schwachstellen in der BOS-Versorgung: <strong>Versorgungslücken durch ungemeldete bauliche Veränderungen.</strong> In diesem Artikel erklären wir, was eine normkonforme Funkfeldmessung leistet, wie sie durchgeführt wird und in welchen Situationen Sie zwingend nachmessen lassen müssen.</p>
+
+
+      <h2 id="warum-messen">Warum Funkfeldmessungen unverzichtbar sind</h2>
+
+      <p>Ein BOS-Repeater sendet in alle Richtungen – aber Funksignale verhalten sich nicht wie Licht. Sie werden von Materialien unterschiedlich stark gedämpft, reflektiert und gebeugt. <strong>Nur eine Messung zeigt, was tatsächlich ankommt.</strong></p>
+
+      <p>Die Dämpfungswerte typischer Baumaterialien im TETRA-Band (380–400 MHz):</p>
+
+      <table class="comparison-table">
+        <thead>
+          <tr><th>Material</th><th>Dämpfung (typisch)</th><th>Risiko</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Normaler Innenputz</td><td>1–3 dB</td><td>Gering</td></tr>
+          <tr><td>Stahlbetondecke</td><td>8–15 dB</td><td>Mittel – mehrere Stockwerke kritisch</td></tr>
+          <tr><td>Metallverkleidung / Fassade</td><td>15–30 dB</td><td>Hoch – oft vollständige Abschirmung</td></tr>
+          <tr><td>Doppelverglasung (Wärmeschutz)</td><td>10–20 dB</td><td>Hoch – besonders bei modernen Bürofassaden</td></tr>
+          <tr><td>Tiefgaragenwände (Stahlbeton)</td><td>20–40 dB</td><td>Sehr hoch – ohne Anlage keine Versorgung</td></tr>
+          <tr><td>Bleiverkleidung / Strahlenschutzräume</td><td>40+ dB</td><td>Kritisch – vollständige Eigenversorgung nötig</td></tr>
+        </tbody>
+      </table>
+
+      <p>Was das bedeutet: Ein einziger nachträglich eingebauter Metallschrank in einem Korridor kann den dahinterliegenden Bereich aus der Funkversorgung werfen. Ohne Messung merkt das niemand.</p>
+
+
+      <h2 id="was-messung">Was eine Funkfeldmessung nach DIN 14024 beinhaltet</h2>
+
+      <p>Eine normkonforme Messung ist kein Spaziergang mit dem Handfunkgerät. Sie folgt einem definierten Protokoll:</p>
+
+      <h3>1. Referenzpunkterfassung</h3>
+      <p>Zunächst werden alle relevanten Bereiche des Gebäudes definiert: Alle Räume und Etagen, die von Einsatzkräften im Notfall betreten werden könnten. Daraus ergibt sich ein Messraster – typisch alle 5 bis 10 Meter.</p>
+
+      <h3>2. Messung der Empfangsfeldstärke (Downlink)</h3>
+      <p>An jedem Messpunkt wird die Feldstärke des BOS-Digitalfunks (TETRA) gemessen. Die DIN 14024 definiert einen Mindestwert von <strong>-95 dBm</strong> (tatsächlich geforderte Werte können je nach Bundesland leicht abweichen). Dieser Wert muss an allen definierten Messpunkten eingehalten werden.</p>
+
+      <h3>3. Messung der Sendefeldstärke (Uplink)</h3>
+      <p>Nicht nur der Empfang, auch das Senden des Handgeräts aus dem Gebäude heraus muss geprüft werden. Eine einseitige Messung ist nicht normkonform.</p>
+
+      <h3>4. Akustischer Durchruf-Test</h3>
+      <p>Ergänzend zum elektronischen Messwert wird in der Praxis ein Sprachtest mit einem echten BOS-Endgerät durchgeführt – in allen kritischen Bereichen. Was auf dem Papier passt, muss auch akustisch funktionieren.</p>
+
+      <h3>5. Dokumentation und Messprotokoll</h3>
+      <p>Alle Messwerte werden in einem vollständigen Prüfprotokoll dokumentiert: mit Grundriss, Messpunkten, Messwerten, Datum, Messgerät-Kalibrierung und Unterschrift des qualifizierten Prüfers. Dieses Protokoll ist die entscheidende Unterlage bei Feuerwehrbegehungen.</p>
+
+
+      <h2 id="umbau-pflicht">Wann ist eine Neumessung Pflicht?</h2>
+
+      <p>Diese Frage unterschätzen die meisten Betreiber. Eine einmalige Abnahmemessung schützt nicht dauerhaft. Eine Neumessung ist in diesen Situationen <strong>zwingend erforderlich:</strong></p>
+
+      <ul>
+        <li>🔄 <strong>Bauliche Veränderungen</strong> – Neue Trennwände, Raumaufteilungen, Deckenabsenkungen</li>
+        <li>🔄 <strong>Einbau metallischer Konstruktionen</strong> – Serverräume, Kühlräume, Stahlregale</li>
+        <li>🔄 <strong>Neue Außenfassade</strong> – Wärmedämmverbundsystem, Glasfassaden, Metallverkleidung</li>
+        <li>🔄 <strong>Änderung der Nutzungsart</strong> – z.B. Büro wird zu Krankenhaus-Station oder Labor</li>
+        <li>🔄 <strong>Änderung am BOS-Funknetz selbst</strong> – neue Repeater-Typen, Kanalwechsel</li>
+        <li>🔄 <strong>Neue Auflagen der Feuerwehr</strong> – nach Feuerwehrkontrolle oder bei Gebäudezulassung</li>
+      </ul>
+
+      <div class="info-box">
+        <strong>Wichtig für Facility Manager</strong>
+        Informieren Sie BESCom bei jeder baulichen Veränderung im Gebäude – auch wenn es "nur" ein neuer Mieterausbau ist. Eine Neumessung ist deutlich günstiger als eine behördliche Beanstandung nach der nächsten Feuerwehrbegehung.
+      </div>
+
+
+      <h2 id="lücken-erkennen">Typische Stellen mit Versorgungslücken</h2>
+
+      <p>Aus über 35 Jahren Praxis wissen wir, wo Versorgungslücken am häufigsten auftreten:</p>
+
+      <ul>
+        <li><strong>Unterste Kellerebenen</strong> bei mehrstöckigen Tiefgaragen – jede weitere Ebene kostet 10–15 dB</li>
+        <li><strong>Aufzugsschächte</strong> und der unmittelbare Bereich darum herum</li>
+        <li><strong>Treppenhauskerne</strong> in Hochhäusern ab dem 10. OG – Signal von außen reicht nicht mehr</li>
+        <li><strong>Haustechnikräume</strong> mit dichten Metallschränken</li>
+        <li><strong>Sanitärräume</strong> mit Fliesen auf Metallunterkonstruktion</li>
+        <li><strong>Nachträglich ausgebaute Dachräume</strong> mit Mineralwolledämmung in Metallkassetten</li>
+      </ul>
+
+
+      <h2 id="was-kostet">Was kostet eine Funkfeldmessung?</h2>
+
+      <p>Die Kosten einer Messung hängen primär von der Gebäudegröße und der Anzahl der Messpunkte ab. Für ein mittelgroßes Objekt ist eine professionelle Messung mit Protokoll ein kalkulierbarer, einmaliger Aufwand – der sich gegen die Kosten einer behördlichen Nachforderung oder eines Feuerwehreinsatzes ohne Funkkommunikation rechnet.</p>
+
+      <p>BESCom bietet <strong>Funkfeldmessungen als eigenständige Leistung</strong> an – auch ohne bestehenden Wartungsvertrag. Nach der Messung erhalten Sie ein vollständiges, behördlich anerkanntes Protokoll und eine Empfehlung zu notwendigen Maßnahmen.</p>
+
+      <p style="background: #f0f4f9; border-left: 4px solid #003366; padding: 16px 20px; border-radius: 0 8px 8px 0; margin: 24px 0; font-size: 15px;">
+        💡 <strong>Unser Ansatz:</strong> Wir messen nicht, um Arbeit zu generieren – wir messen, um zu wissen, was wirklich ist. Wenn Ihre Anlage normkonform versorgt, sagen wir Ihnen das ehrlich. Wenn es Lücken gibt, zeigen wir Ihnen die präzise, kosteneffiziente Lösung.
+        <br><br><a href="bos-objektfunk.html#kontakt" style="color: #003366; font-weight: 700;">→ Funkfeldmessung anfragen</a>
+      </p>
+
+
+      <h2 id="fazit">Fazit: Eine Messung ist keine Formalität – sie ist die Realitätsprüfung</h2>
+
+      <p>Gebäude verändern sich. Bauliche Maßnahmen, neue Nutzungen, veränderte Funknetzparameter – jede dieser Veränderungen kann stille Versorgungslücken erzeugen. Nur wer regelmäßig misst und bei Veränderungen sofort nachmisst, kann sicher sein, dass seine BOS-Anlage im Ernstfall das leistet, was sie soll.</p>
+
+      <p>BESCom führt Funkfeldmessungen mit kalibriertem Equipment und vollständiger DIN-14024-konformer Dokumentation durch. Als BODeV-zertifizierter Fachbetrieb sind unsere Protokolle behördlich anerkannt – in Hamburg und bundesweit.</p>
+
+
+      <!-- ARTIKEL-ENDE CTA -->
+      <div class="article-end-cta">
+        <div class="article-end-cta__title">Gab es bauliche Veränderungen in Ihrem Gebäude seit der letzten Messung?</div>
+        <p class="article-end-cta__text">BESCom führt eine vollständige Funkfeldmessung durch und zeigt Ihnen, ob Ihre Anlage noch überall normkonform versorgt – mit behördlich anerkanntem Protokoll.</p>
+        <div class="article-end-cta__actions">
+          <a href="tel:+4940211191110" class="btn btn--primary" style="font-size:17px;">📞 040 2111 9111</a>
+          <a href="bos-objektfunk.html#kontakt" class="btn btn--outline">Messung anfragen</a>
+        </div>
+      </div>
+
+
+      <!-- VERWANDTE BEITRÄGE -->
+      <div class="related-posts">
+        <h3 class="related-posts__title">Weitere Beiträge</h3>
+        <div class="related-posts__grid">
+          <a href="blog-bos-wartung-pflicht.html" class="related-post-card">
+            <div class="related-post-card__tag">BOS-Objektfunk</div>
+            <div class="related-post-card__title">BOS-Anlage Wartung: Was gesetzlich vorgeschrieben ist</div>
+          </a>
+          <a href="blog-bos-wartung-akku.html" class="related-post-card">
+            <div class="related-post-card__tag">BOS-Objektfunk</div>
+            <div class="related-post-card__title">Akkuausfall in der BOS-Anlage: Wenn der stille Defekt zur Gefahr wird</div>
+          </a>
+          <a href="blog-bos-objektfunk.html" class="related-post-card">
+            <div class="related-post-card__tag">BOS-Objektfunk</div>
+            <div class="related-post-card__title">BOS-Objektfunk Pflicht: Wann braucht Ihr Gebäude eine Anlage?</div>
+          </a>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- SIDEBAR -->
+    <aside class="article-sidebar" aria-label="Sidebar">
+
+      <div class="sidebar-cta">
+        <div class="sidebar-cta__icon">🛡️</div>
+        <div class="sidebar-cta__title">Funkfeldmessung anfragen</div>
+        <p class="sidebar-cta__text">Wir messen Ihre BOS-Versorgung vollständig nach DIN 14024 – mit behördlich anerkanntem Protokoll.</p>
+        <a href="tel:+4940211191110" class="sidebar-cta__phone">040 2111 9111</a>
+        <a href="bos-objektfunk.html#kontakt" class="btn btn--primary" style="width:100%;text-align:center;">Messung anfragen</a>
+      </div>
+
+      <div class="sidebar-toc">
+        <div class="sidebar-toc__title">Inhalt</div>
+        <ul class="sidebar-toc__list">
+          <li><a href="#warum-messen">Warum Messungen unverzichtbar sind</a></li>
+          <li><a href="#was-messung">Was eine Messung beinhaltet</a></li>
+          <li><a href="#umbau-pflicht">Wann Neumessung Pflicht ist</a></li>
+          <li><a href="#lücken-erkennen">Typische Versorgungslücken</a></li>
+          <li><a href="#was-kostet">Kosten</a></li>
+          <li><a href="#fazit">Fazit</a></li>
+        </ul>
+      </div>
+
+      <div style="background:var(--color-bg-soft);border-radius:var(--border-radius-lg);padding:20px;font-size:14px;color:var(--color-text-muted);">
+        <strong style="display:block;color:var(--color-primary);margin-bottom:8px;">BESCom Elektronik GmbH</strong>
+        Hermann-Blohm-Str. 3<br>20457 Hamburg<br><br>
+        <a href="tel:+4940211191110" style="color:var(--color-accent);font-weight:700;">040 2111 9111</a><br>
+        <a href="mailto:ov@bescom.de" style="color:var(--color-text-muted);">ov@bescom.de</a><br><br>
+        BODeV-zertifiziert · ISO 9001 · Seit 1989
+      </div>
+
+    </aside>
+
+  </div>
+
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <div class="footer__logo">
+          <img src="assets/images/BESCom-Logo.png" alt="BESCom Logo" width="100" height="34" loading="lazy" onerror="this.style.display='none'">
+          <span class="footer__logo-name">BESCom Elektronik GmbH</span>
+        </div>
+        <p class="footer__tagline">Gegründet 1989 · Hamburg<br>Ihr Partner für professionelle Funkkommunikation.</p>
+      </div>
+      <div>
+        <p class="footer__col-title">Leistungen</p>
+        <ul class="footer__links">
+          <li><a href="bos-objektfunk.html">BOS-Objektfunk</a></li>
+          <li><a href="industriefunk.html">Industriefunk TETRA/DMR</a></li>
+          <li><a href="lte-campusnetz.html">LTE-Campusnetz</a></li>
+          <li><a href="handfunkgeraete.html">Handfunkgeräte</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">Kontakt</p>
+        <div class="footer__contact-item"><span class="footer__contact-icon">📍</span><span>Hermann-Blohm-Str. 3, 20457 Hamburg</span></div>
+        <div class="footer__contact-item"><span class="footer__contact-icon">📞</span><a href="tel:+4940211191110">040 2111 9111</a></div>
+        <div class="footer__contact-item"><span class="footer__contact-icon">📧</span><a href="mailto:ov@bescom.de">ov@bescom.de</a></div>
+      </div>
+      <div>
+        <p class="footer__col-title">Rechtliches</p>
+        <ul class="footer__links">
+          <li><a href="impressum.html">Impressum</a></li>
+          <li><a href="datenschutz.html">Datenschutzerklärung</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2026 BESCom Elektronik GmbH · Hamburg</span>
+      <span><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></span>
+    </div>
+  </footer>
+
+  <!-- Mobile Sticky CTA -->
+  <div class="mobile-sticky-cta">
+    <a href="tel:+4940211191110" class="mobile-sticky-cta__phone">📞 040 2111 9111</a>
+    <a href="bos-objektfunk.html#kontakt" class="mobile-sticky-cta__btn btn btn--primary">Jetzt anfragen</a>
+  </div>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>AOS.init({ duration: 600, once: true });</script>
+</body>
+</html>
