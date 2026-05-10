@@ -1,0 +1,33 @@
+# BESCom Elektronik GmbH
+
+BESCom Elektronik GmbH ist ein BODeV-zertifizierter Spezialist für professionelle Funkkommunikation mit Sitz in Hamburg. Gegründet 1989, plant, installiert und wartet BESCom BOS-Objektfunkanlagen, Industriefunksysteme (TETRA/DMR), LTE-Campusnetze und Handfunkgeräte nach DIN 14024.
+
+## Kernleistungen
+
+- BOS-Objektfunk: Planung, Erforderlichkeitsmessung, Funknetzplanung, Installation, Anzeigeverfahren (BDBOS), Wartung nach DIN 14024
+- Industriefunk: TETRA- und DMR-Systeme für Industrie, Hafen und Logistik
+- LTE-Campusnetze: Private Mobilfunkinfrastruktur für Industriebetriebe
+- Handfunkgeräte: Programmierung, Wartung und Reparatur
+
+## Zertifizierungen
+
+- BODeV-zertifiziert (Bundesverband der Objektfunk-Dienstleister e.V.)
+- ISO 9001
+
+## Kontakt
+
+BESCom Elektronik GmbH
+Hermann-Blohm-Str. 3
+20457 Hamburg
+Telefon: 040 2111 9111
+E-Mail: ov@bescom.de
+Web: https://www.objektfunksysteme.de
+
+## Sitemap
+
+- https://www.objektfunksysteme.de/
+- https://www.objektfunksysteme.de/bos-objektfunk.html
+- https://www.objektfunksysteme.de/industriefunk.html
+- https://www.objektfunksysteme.de/lte-campusnetz.html
+- https://www.objektfunksysteme.de/handfunkgeraete.html
+- https://www.objektfunksysteme.de/blog.html
