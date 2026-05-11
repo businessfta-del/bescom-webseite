@@ -629,17 +629,16 @@ p:last-child { margin-bottom: 0; }
 }
 
 .logo-grid__item img {
-  width: 110px;
-  height: 52px;
+  width: 150px;
+  height: 70px;
   object-fit: contain;
-  filter: grayscale(100%);
-  opacity: 0.65;
-  transition: filter .25s, opacity .25s;
+  filter: none;
+  opacity: 1;
+  transition: transform .2s;
 }
 
 .logo-grid__item:hover img {
-  filter: grayscale(0%);
-  opacity: 1;
+  transform: scale(1.05);
 }
 
 @media (max-width: 1024px) {
@@ -647,7 +646,7 @@ p:last-child { margin-bottom: 0; }
 }
 @media (max-width: 600px) {
   .logo-grid { grid-template-columns: repeat(3, 1fr); padding: 24px 16px; gap: 10px; }
-  .logo-grid__item img { width: 80px; height: 40px; }
+  .logo-grid__item img { width: 100px; height: 50px; }
 }
 @media (max-width: 380px) {
   .logo-grid { grid-template-columns: repeat(2, 1fr); }
