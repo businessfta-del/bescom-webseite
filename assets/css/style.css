@@ -599,6 +599,30 @@ p:last-child { margin-bottom: 0; }
   color: var(--color-primary);
 }
 
+/* Logo-Slideshow: Bilder in Originalfarben (kein Grayscale) */
+.logo-band__logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 12px;
+  flex-shrink: 0;
+  transition: transform var(--transition), opacity var(--transition);
+}
+
+.logo-band__logo img {
+  height: 52px;
+  width: 120px;
+  object-fit: contain;
+  filter: none;
+  opacity: 1;
+  display: block;
+}
+
+.logo-band__logo:hover {
+  transform: scale(1.06);
+  opacity: .85;
+}
+
 /* Logo Grid (ersetzt Logo-Band) */
 .logo-grid {
   display: grid;
@@ -1414,30 +1438,6 @@ textarea.form-control { resize: vertical; min-height: 120px; }
 .cert-single img:hover { transform: scale(1.02); }
 
 /* Logo-Band mit Bild-Logos */
-.logo-band__item--img {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 8px 16px;
-  border: none;
-  background: none;
-  filter: none !important;
-  opacity: 1 !important;
-}
-
-.logo-band__item--img img {
-  height: 48px;
-  width: 110px;
-  object-fit: contain;
-  filter: none;
-  opacity: 1;
-  transition: transform var(--transition), opacity var(--transition);
-}
-
-.logo-band__item--img:hover img {
-  transform: scale(1.08);
-  opacity: .85;
-}
 
 /* ---------------------------------------------------------
    22. RESPONSIVE HELPER
