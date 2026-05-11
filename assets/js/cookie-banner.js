@@ -11,12 +11,16 @@
   }
 
   function saveConsent(statistiken, externeMedien) {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify({
-      essenziell: true,
-      statistiken,
-      externeMedien,
-      timestamp: Date.now()
-    }));
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({
+        essenziell: true,
+        statistiken,
+        externeMedien,
+        timestamp: Date.now()
+      }));
+    } catch {
+      // localStorage nicht verfügbar (z.B. iOS Private Mode) – Banner trotzdem schließen
+    }
   }
 
   function hideBanner() {
@@ -25,9 +29,19 @@
       banner.classList.remove('visible');
       setTimeout(() => { banner.style.display = 'none'; }, 300);
     }
-    // Mobile Sticky CTA wieder einblenden
     const mobileCta = document.querySelector('.mobile-sticky-cta');
     if (mobileCta) mobileCta.style.display = '';
+  }
+
+  function onBtn(id, handler) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    // click + touchend für maximale Mobile-Kompatibilität
+    el.addEventListener('click', handler);
+    el.addEventListener('touchend', function (e) {
+      e.preventDefault(); // verhindert doppeltes Feuern mit click
+      handler();
+    });
   }
 
   function initBanner() {
@@ -42,13 +56,13 @@
     if (mobileCta) mobileCta.style.display = 'none';
 
     // Alle akzeptieren
-    document.getElementById('cookieAcceptAll')?.addEventListener('click', () => {
+    onBtn('cookieAcceptAll', function () {
       saveConsent(true, true);
       hideBanner();
     });
 
     // Auswahl speichern
-    document.getElementById('cookieSave')?.addEventListener('click', () => {
+    onBtn('cookieSave', function () {
       const statistiken   = document.getElementById('cookieStatistiken')?.checked ?? false;
       const externeMedien = document.getElementById('cookieExterneMedien')?.checked ?? false;
       saveConsent(statistiken, externeMedien);
@@ -56,7 +70,7 @@
     });
 
     // Einstellungen – klappt Checkbox-Bereich auf
-    document.getElementById('cookieIndividual')?.addEventListener('click', () => {
+    onBtn('cookieIndividual', function () {
       const extra      = document.getElementById('cookieExtra');
       const extraMedia = document.getElementById('cookieExtraMedia');
       const show = extra?.style.display === 'none' || extra?.style.display === '';

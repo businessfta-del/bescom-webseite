@@ -1290,6 +1290,8 @@ textarea.form-control { resize: vertical; min-height: 120px; }
 }
 
 .cookie-banner.visible { display: block; }
+.cookie-banner.visible,
+.cookie-banner.visible * { pointer-events: auto !important; }
 
 .cookie-banner__inner {
   max-width: var(--max-width);
