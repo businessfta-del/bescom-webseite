@@ -1310,9 +1310,7 @@ textarea.form-control { resize: vertical; min-height: 120px; }
 
 @media (max-width: 767px) {
   .cookie-banner {
-    padding: 16px 16px 80px; /* Platz für Mobile-Sticky-CTA */
-    max-height: 80vh;
-    overflow-y: auto;
+    padding: 16px;
   }
   .cookie-banner__inner {
     grid-template-columns: 1fr;

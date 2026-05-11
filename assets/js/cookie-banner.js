@@ -25,14 +25,21 @@
       banner.classList.remove('visible');
       setTimeout(() => { banner.style.display = 'none'; }, 300);
     }
+    // Mobile Sticky CTA wieder einblenden
+    const mobileCta = document.querySelector('.mobile-sticky-cta');
+    if (mobileCta) mobileCta.style.display = '';
   }
 
   function initBanner() {
-    if (getConsent()) return; // Bereits entschieden
+    if (getConsent()) return;
 
     const banner = document.getElementById('cookieBanner');
     if (!banner) return;
     banner.classList.add('visible');
+
+    // Mobile Sticky CTA ausblenden damit Buttons erreichbar sind
+    const mobileCta = document.querySelector('.mobile-sticky-cta');
+    if (mobileCta) mobileCta.style.display = 'none';
 
     // Alle akzeptieren
     document.getElementById('cookieAcceptAll')?.addEventListener('click', () => {
@@ -48,10 +55,13 @@
       hideBanner();
     });
 
-    // Individuelle Einstellungen – klappt Checkbox-Bereich auf (bereits sichtbar)
+    // Einstellungen – klappt Checkbox-Bereich auf
     document.getElementById('cookieIndividual')?.addEventListener('click', () => {
-      const extra = document.getElementById('cookieExtra');
-      if (extra) extra.style.display = extra.style.display === 'none' ? 'flex' : 'none';
+      const extra      = document.getElementById('cookieExtra');
+      const extraMedia = document.getElementById('cookieExtraMedia');
+      const show = extra?.style.display === 'none' || extra?.style.display === '';
+      if (extra)      extra.style.display      = show ? 'flex' : 'none';
+      if (extraMedia) extraMedia.style.display  = show ? 'flex' : 'none';
     });
   }
 
