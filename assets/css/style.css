@@ -2275,3 +2275,17 @@ textarea.form-control { resize: vertical; min-height: 120px; }
   cursor: pointer; color: #64748b;
 }
 .exit-modal__phone { margin-top: 12px; font-size: 0.9rem; }
+
+/* ==== Zielgruppen-Karten: zentriert, Buttons bündig unten ==== */
+.service-card--center .service-card__body {
+  text-align: center;
+  align-items: center;
+}
+.service-card--center .service-card__body p {
+  color: var(--color-text-muted);
+  font-size: 15px;
+  flex: 1;
+}
+.service-card .service-card__body .btn {
+  margin-top: auto;
+}
