@@ -230,7 +230,7 @@ p:last-child { margin-bottom: 0; }
 }
 
 .nav__logo img {
-  height: 100px;
+  height: 44px;
   width: auto;
   object-fit: contain;
 }
@@ -2187,19 +2187,22 @@ textarea.form-control { resize: vertical; min-height: 120px; }
    NAVIGATION – Telefonnummer
    --------------------------------------------------------- */
 .nav__phone-link {
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--color-primary);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-accent);
   text-decoration: none;
   white-space: nowrap;
-  padding: 8px 12px;
+  padding: 6px 10px;
   border-radius: 6px;
-  transition: background 0.2s;
+  border: 1px solid var(--color-accent);
+  transition: background 0.2s, color 0.2s;
+  flex-shrink: 0;
 }
 .nav__phone-link:hover {
-  background: rgba(0,24,48,.06);
+  background: var(--color-accent);
+  color: #fff;
 }
-@media (max-width: 900px) {
+@media (max-width: 1200px) {
   .nav__phone-link { display: none; }
 }
 
@@ -2242,4 +2245,45 @@ textarea.form-control { resize: vertical; min-height: 120px; }
   .quick-contact-bar__inner { flex-direction: column; align-items: flex-start; }
   .quick-contact-bar__actions { width: 100%; }
   .quick-contact-bar__actions .btn { flex: 1; text-align: center; }
+}
+
+/* ---------------------------------------------------------
+   TOPBAR (über Navigation)
+   --------------------------------------------------------- */
+.topbar {
+  background: var(--color-primary);
+  padding: 7px 24px;
+  position: relative;
+  z-index: 1001;
+}
+.topbar__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.topbar__item {
+  font-size: 13px;
+  color: rgba(255,255,255,.85);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.topbar__phone {
+  font-weight: 700;
+  color: var(--color-accent) !important;
+}
+.topbar__phone:hover {
+  color: #fff !important;
+}
+.topbar__divider {
+  color: rgba(255,255,255,.3);
+  font-size: 12px;
+}
+.topbar__divider--right {
+  margin-left: auto;
+}
+@media (max-width: 768px) {
+  .topbar { display: none; }
 }
