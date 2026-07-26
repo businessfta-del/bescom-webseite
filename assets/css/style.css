@@ -2151,3 +2151,72 @@ textarea.form-control { resize: vertical; min-height: 120px; }
 }
 
 .blog-preview-more { text-align: center; margin-top: 40px; }
+
+
+/* ==== Checkliste, Prozess-Timeline, Vergleichstabelle (Servicseiten) ==== */
+.check-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 12px 24px;
+  margin-top: 24px;
+}
+.check-grid li {
+  list-style: none;
+  padding: 12px 16px;
+  background: var(--color-bg-soft, #f5f7fa);
+  border-radius: 8px;
+  font-weight: 600;
+}
+.check-grid li::before { content: "✓ "; color: #E85D04; font-weight: 800; }
+.process-timeline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin-top: 24px;
+  padding: 0;
+}
+.process-timeline li {
+  list-style: none;
+  background: #001830;
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+.process-timeline li:not(:last-child)::after {
+  content: "→";
+  color: #E85D04;
+  margin-left: 8px;
+}
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 24px;
+}
+.comparison-table th {
+  background: #001830;
+  color: #fff;
+  padding: 12px 16px;
+  text-align: left;
+}
+.comparison-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #e2e8f0;
+}
+.comparison-table tr:nth-child(even) td { background: var(--color-bg-soft, #f5f7fa); }
+.manufacturer-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+  padding: 0;
+}
+.manufacturer-row li {
+  list-style: none;
+  padding: 10px 20px;
+  border: 2px solid #001830;
+  border-radius: 8px;
+  font-weight: 700;
+}
