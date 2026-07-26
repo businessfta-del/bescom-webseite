@@ -1,0 +1,1 @@
+- fix: CTA-Text-Variante '📤 Anfrage absenden' ersetzt (9 Seiten)
