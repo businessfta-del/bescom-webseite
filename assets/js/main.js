@@ -91,10 +91,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (anchorTabs.length) {
     const sections = Array.from(anchorTabs)
+      .filter(tab => (tab.getAttribute('href') || '').startsWith('#'))
       .map(tab => document.querySelector(tab.getAttribute('href')))
       .filter(Boolean);
 
     const activateTab = () => {
+      if (!sections.length) return;
       let current = sections[0];
       sections.forEach(sec => {
         if (window.scrollY + 160 >= sec.offsetTop) current = sec;
