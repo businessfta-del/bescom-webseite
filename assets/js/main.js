@@ -3,6 +3,10 @@
    Vanilla JS – kein jQuery, kein Framework
    ========================================================= */
 
+/* Webhook-Endpoint für das Kontaktformular (n8n) –
+   hier die eigene Domain eintragen: */
+const KONTAKT_WEBHOOK_URL = 'https://DEINE-N8N-DOMAIN/webhook/kontaktformular';
+
 document.addEventListener('DOMContentLoaded', () => {
 
   /* ---------------------------------------------------------
@@ -105,34 +109,62 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ---------------------------------------------------------
-     5. KONTAKTFORMULAR – inline Erfolgsmeldung via mailto
+     5. KONTAKTFORMULAR – POST an Webhook, inline Erfolgsmeldung
      --------------------------------------------------------- */
   document.querySelectorAll('.js-contact-form').forEach(form => {
-    form.addEventListener('submit', e => {
+    form.addEventListener('submit', async e => {
       e.preventDefault();
 
-      const data    = new FormData(form);
-      const email   = form.dataset.email || 'info@bescom.de';
-      const subject = encodeURIComponent('Anfrage über BESCom-Website');
+      const data       = new FormData(form);
+      const emailInput = form.querySelector('[name="email"]');
 
-      const body = encodeURIComponent(
-        `Name: ${data.get('name') || ''}\n` +
-        `Firma: ${data.get('firma') || ''}\n` +
-        `Telefon: ${data.get('telefon') || ''}\n` +
-        `E-Mail: ${data.get('email') || ''}\n` +
-        `Leistung: ${data.get('leistung') || ''}\n\n` +
-        `Nachricht:\n${data.get('nachricht') || ''}`
-      );
+      // Validierung: Pflichtfelder + mindestens E-Mail oder Telefon
+      emailInput?.setCustomValidity('');
+      const hasEmail = (data.get('email')   || '').trim() !== '';
+      const hasTel   = (data.get('telefon') || '').trim() !== '';
+      if (emailInput && !hasEmail && !hasTel) {
+        emailInput.setCustomValidity('Bitte geben Sie eine E-Mail-Adresse oder Telefonnummer an.');
+      }
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
 
-      // Mailto-Link öffnen
-      window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
+      const success   = form.querySelector('.form-success');
+      const error     = form.querySelector('.form-error');
+      const submitBtn = form.querySelector('button[type="submit"]');
+      if (success) success.style.display = 'none';
+      if (error)   error.style.display   = 'none';
+      if (submitBtn) submitBtn.disabled  = true;
 
-      // Erfolgsmeldung anzeigen
-      const success = form.querySelector('.form-success');
-      if (success) {
-        success.style.display = 'block';
+      try {
+        const res = await fetch(KONTAKT_WEBHOOK_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name:      data.get('name')      || '',
+            firma:     data.get('firma')     || '',
+            telefon:   data.get('telefon')   || '',
+            email:     data.get('email')     || '',
+            leistung:  data.get('leistung')  || '',
+            nachricht: data.get('nachricht') || '',
+            quelle:    window.location.href,
+          }),
+        });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
         form.reset();
-        success.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        if (success) {
+          success.style.display = 'block';
+          success.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+      } catch (err) {
+        if (error) {
+          error.style.display = 'block';
+          error.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+      } finally {
+        if (submitBtn) submitBtn.disabled = false;
       }
     });
   });
