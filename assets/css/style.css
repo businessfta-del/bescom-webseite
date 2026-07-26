@@ -1244,7 +1244,7 @@ textarea.form-control { resize: vertical; min-height: 120px; }
 .anchor-tabs {
   background: var(--color-primary);
   position: sticky;
-  top: 62px;
+  top: 120px; /* Höhe der fixierten Hauptnavigation (Logo 100px + Padding) */
   z-index: 500;
   box-shadow: 0 4px 16px rgba(0,0,0,.15);
 }
