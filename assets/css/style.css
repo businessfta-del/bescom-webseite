@@ -2182,3 +2182,64 @@ textarea.form-control { resize: vertical; min-height: 120px; }
   max-width: 720px;
   margin: 0 auto;
 }
+
+/* ---------------------------------------------------------
+   NAVIGATION – Telefonnummer
+   --------------------------------------------------------- */
+.nav__phone-link {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-primary);
+  text-decoration: none;
+  white-space: nowrap;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+.nav__phone-link:hover {
+  background: rgba(0,24,48,.06);
+}
+@media (max-width: 900px) {
+  .nav__phone-link { display: none; }
+}
+
+/* ---------------------------------------------------------
+   SCHNELLKONTAKT-STREIFEN
+   --------------------------------------------------------- */
+.quick-contact-bar {
+  background: #f0f7ff;
+  border-top: 2px solid #d0e8ff;
+  border-bottom: 2px solid #d0e8ff;
+  padding: 24px 0;
+}
+.quick-contact-bar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.quick-contact-bar__text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.quick-contact-bar__text strong {
+  font-size: 18px;
+  color: var(--color-primary);
+}
+.quick-contact-bar__text span {
+  font-size: 15px;
+  color: var(--color-text-muted);
+}
+.quick-contact-bar__actions {
+  display: flex;
+  gap: 12px;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+@media (max-width: 640px) {
+  .quick-contact-bar__inner { flex-direction: column; align-items: flex-start; }
+  .quick-contact-bar__actions { width: 100%; }
+  .quick-contact-bar__actions .btn { flex: 1; text-align: center; }
+}
