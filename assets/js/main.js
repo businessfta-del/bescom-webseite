@@ -218,3 +218,63 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 });
+
+
+/* =========================================================
+   EXIT-INTENT MODAL – Desktop only, 1x pro Session
+   ========================================================= */
+(function () {
+  if (window.innerWidth < 769) return;
+  if (sessionStorage.getItem('exitIntentShown')) return;
+
+  function showModal() {
+    if (sessionStorage.getItem('exitIntentShown')) return;
+    sessionStorage.setItem('exitIntentShown', '1');
+
+    const overlay = document.createElement('div');
+    overlay.className = 'exit-modal-overlay';
+    overlay.innerHTML =
+      '<div class="exit-modal" role="dialog" aria-modal="true" aria-labelledby="exit-modal-title">' +
+      '  <button class="exit-modal__close" aria-label="Schließen">✕</button>' +
+      '  <h3 id="exit-modal-title">Kurze Frage zum Objektfunk?</h3>' +
+      '  <p>Hinterlassen Sie Ihre Telefonnummer – ein Ingenieur ruft Sie kostenlos zurück.</p>' +
+      '  <form class="exit-modal__form">' +
+      '    <input type="tel" name="telefon" placeholder="Ihre Telefonnummer" required autocomplete="tel">' +
+      '    <button type="submit" class="btn btn--primary" style="width:100%;">Rückruf anfragen</button>' +
+      '  </form>' +
+      '  <p class="exit-modal__phone">Oder direkt: <a href="tel:+4940211191110"><strong>040 2111 9111</strong></a></p>' +
+      '</div>';
+    document.body.appendChild(overlay);
+
+    function close() { overlay.remove(); }
+    overlay.addEventListener('click', e => { if (e.target === overlay) close(); });
+    overlay.querySelector('.exit-modal__close').addEventListener('click', close);
+    document.addEventListener('keydown', function esc(e) {
+      if (e.key === 'Escape') { close(); document.removeEventListener('keydown', esc); }
+    });
+
+    overlay.querySelector('.exit-modal__form').addEventListener('submit', async e => {
+      e.preventDefault();
+      const telefon = e.target.telefon.value.trim();
+      if (!telefon) return;
+      const box = overlay.querySelector('.exit-modal');
+      try {
+        await fetch(CONTACT_WEBHOOK_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ typ: 'rueckruf', telefon, seite: window.location.href }),
+        });
+        box.innerHTML = '<h3>Vielen Dank!</h3><p>Wir rufen Sie schnellstmöglich zurück.</p>';
+      } catch (err) {
+        box.innerHTML = '<h3>Rufen Sie uns direkt an</h3>' +
+          '<p>Die Anfrage konnte nicht übermittelt werden. Sie erreichen uns unter ' +
+          '<a href="tel:+4940211191110"><strong>040 2111 9111</strong></a>.</p>';
+      }
+      setTimeout(close, 4000);
+    });
+  }
+
+  document.documentElement.addEventListener('mouseleave', e => {
+    if (e.clientY <= 0) showModal();
+  });
+})();

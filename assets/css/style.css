@@ -2220,3 +2220,41 @@ textarea.form-control { resize: vertical; min-height: 120px; }
   border-radius: 8px;
   font-weight: 700;
 }
+
+
+/* ==== Sticky Phone Button (mobil) ==== */
+.mobile-phone-btn {
+  display: none;
+  position: fixed;
+  bottom: 20px; right: 20px; z-index: 9999;
+  background: #E85D04; color: #fff;
+  padding: 14px 20px; border-radius: 50px;
+  font-weight: 700; text-decoration: none;
+  box-shadow: 0 4px 16px rgba(232,93,4,0.4);
+}
+@media (max-width: 768px) { .mobile-phone-btn { display: block; } }
+
+/* ==== Exit-Intent Modal ==== */
+.exit-modal-overlay {
+  position: fixed; inset: 0; z-index: 10000;
+  background: rgba(0,8,20,0.65);
+  display: flex; align-items: center; justify-content: center;
+}
+.exit-modal {
+  background: #fff; border-radius: 12px;
+  max-width: 420px; width: calc(100% - 48px);
+  padding: 32px; position: relative;
+  box-shadow: 0 12px 48px rgba(0,0,0,0.3);
+}
+.exit-modal h3 { margin: 0 0 8px; color: #001830; }
+.exit-modal p { margin: 0 0 16px; }
+.exit-modal input[type="tel"] {
+  width: 100%; padding: 12px 14px; margin-bottom: 12px;
+  border: 1px solid #cbd5e1; border-radius: 8px; font: inherit;
+}
+.exit-modal__close {
+  position: absolute; top: 10px; right: 14px;
+  background: none; border: none; font-size: 1.4rem;
+  cursor: pointer; color: #64748b;
+}
+.exit-modal__phone { margin-top: 12px; font-size: 0.9rem; }
