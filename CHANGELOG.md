@@ -1,1 +1,2 @@
 - fix: CTA-Text-Variante '📤 Anfrage absenden' ersetzt (9 Seiten)
+- fix: 24 Titles auf 50–65 Zeichen, 1 Desc gekürzt, 404-Schema ergänzt; Hinweis: class="topbar" existiert im Design nicht (Site nutzt class="nav") – bewusst nicht eingebaut
