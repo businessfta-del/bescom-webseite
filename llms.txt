@@ -1,33 +1,11 @@
-# BESCom Elektronik GmbH
+# BESCom Elektronik GmbH – objektfunksysteme.de
 
-BESCom Elektronik GmbH ist ein BODeV-zertifizierter Spezialist für professionelle Funkkommunikation mit Sitz in Hamburg. Gegründet 1989, plant, installiert und wartet BESCom BOS-Objektfunkanlagen, Industriefunksysteme (TETRA/DMR), LTE-Campusnetze und Handfunkgeräte nach DIN 14024.
+BESCom Elektronik GmbH ist ein 1989 gegründetes Hamburger Fachunternehmen für professionelle Funkkommunikation in Gebäuden und auf Betriebsgeländen. Das Unternehmen plant, installiert und wartet BOS-Objektfunkanlagen, Industriefunksysteme auf TETRA- und DMR-Basis sowie private LTE-Campusnetze. Ergänzend programmiert, wartet und repariert BESCom Handfunkgeräte aller gängigen Hersteller, darunter Motorola, Sepura, Hytera, Kenwood und Icom.
 
-## Kernleistungen
+Der Schwerpunkt liegt auf BOS-Objektfunk: Das sind Funkanlagen, die Feuerwehr, Polizei und Rettungsdiensten den Funkverkehr innerhalb von Gebäuden ermöglichen. Solche Anlagen sind nach DIN 14024 für viele Gebäude vorgeschrieben – etwa für Neubauten ab 4.000 Quadratmetern, Tiefgaragen, Hochhäuser, Einkaufszentren, Krankenhäuser, Hotels und Logistikzentren. Ohne abgenommene Objektfunkanlage erteilen Behörden keine Nutzungsfreigabe. BESCom begleitet das gesamte Projekt aus einer Hand: von der Erforderlichkeitsmessung über die Funknetzplanung, das BDBOS-Anzeigeverfahren und die Installation bis zur Abnahmemessung und der behördlichen Abnahme. Auch Bestandsanlagen anderer Hersteller werden übernommen, geprüft und behördenkonform dokumentiert.
 
-- BOS-Objektfunk: Planung, Erforderlichkeitsmessung, Funknetzplanung, Installation, Anzeigeverfahren (BDBOS), Wartung nach DIN 14024
-- Industriefunk: TETRA- und DMR-Systeme für Industrie, Hafen und Logistik
-- LTE-Campusnetze: Private Mobilfunkinfrastruktur für Industriebetriebe
-- Handfunkgeräte: Programmierung, Wartung und Reparatur
+BESCom ist BODeV-zertifiziert, nach ISO 9001 zertifiziert und arbeitet nach DIN 14024. Seit der Gründung wurden über 200 Anlagen realisiert – kein Projekt ohne erfolgreiche Abnahme. Das Einsatzgebiet umfasst Hamburg und ganz Norddeutschland, insbesondere Schleswig-Holstein mit Lübeck und Kiel, Niedersachsen, Bremen und Mecklenburg-Vorpommern.
 
-## Zertifizierungen
+Zu den Kunden zählen Bauherren und Projektentwickler, Facility Manager und Gebäudebetreiber, Architekten und Generalunternehmer sowie Industrieunternehmen aus Hafen, Logistik und Produktion. Für Industriekunden liefert BESCom robuste TETRA- und DMR-Betriebsfunksysteme sowie private 4G/5G-Campusnetze mit eigener Frequenzzuteilung der Bundesnetzagentur – inklusive Planung, Installation und laufendem Betrieb.
 
-- BODeV-zertifiziert (Bundesverband der Objektfunk-Dienstleister e.V.)
-- ISO 9001
-
-## Kontakt
-
-BESCom Elektronik GmbH
-Hermann-Blohm-Str. 3
-20457 Hamburg
-Telefon: 040 2111 9111
-E-Mail: ov@bescom.de
-Web: https://www.objektfunksysteme.de
-
-## Sitemap
-
-- https://www.objektfunksysteme.de/
-- https://www.objektfunksysteme.de/bos-objektfunk.html
-- https://www.objektfunksysteme.de/industriefunk.html
-- https://www.objektfunksysteme.de/lte-campusnetz.html
-- https://www.objektfunksysteme.de/handfunkgeraete.html
-- https://www.objektfunksysteme.de/blog.html
+Wer eine kostenlose Ersteinschätzung wünscht, erreicht BESCom telefonisch unter 040 2111 9111 oder per E-Mail an info@bescom.de. Der Firmensitz befindet sich in der Hermann-Blohm-Straße 3, 20457 Hamburg, direkt im Hamburger Hafen. Anfragen beantwortet ein Ingenieur innerhalb von 24 Stunden.

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://bescom.de/sitemap.xml
+Sitemap: https://www.objektfunksysteme.de/sitemap.xml
