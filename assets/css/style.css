@@ -2245,7 +2245,8 @@ textarea.form-control { resize: vertical; min-height: 120px; }
 .mobile-phone-btn {
   display: none;
   position: fixed;
-  bottom: 20px; right: 20px; z-index: 9999;
+  /* links positioniert, damit das Chat-Widget (unten rechts) frei bleibt */
+  bottom: 20px; left: 20px; z-index: 9999;
   background: #E85D04; color: #fff;
   padding: 14px 20px; border-radius: 50px;
   font-weight: 700; text-decoration: none;
