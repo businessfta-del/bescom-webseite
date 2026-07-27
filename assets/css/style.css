@@ -697,11 +697,12 @@ p:last-child { margin-bottom: 0; }
   .logo-grid { grid-template-columns: repeat(4, 1fr); }
 }
 @media (max-width: 600px) {
-  .logo-grid { grid-template-columns: repeat(3, 1fr); padding: 24px 16px; gap: 10px; }
-  .logo-grid__item img { width: 100px; height: 50px; }
+  .logo-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); padding: 24px 16px; gap: 10px; }
+  .logo-grid__item { padding: 10px 6px; }
+  .logo-grid__item img { width: 100%; max-width: 100px; height: 50px; }
 }
 @media (max-width: 380px) {
-  .logo-grid { grid-template-columns: repeat(2, 1fr); }
+  .logo-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 /* ---------------------------------------------------------
@@ -2288,4 +2289,17 @@ textarea.form-control { resize: vertical; min-height: 120px; }
 }
 .service-card .service-card__body .btn {
   margin-top: auto;
+}
+
+/* ==== Mobile-Fixes: Overflow-Ursachen unter 640px ==== */
+iframe { max-width: 100%; }
+
+@media (max-width: 640px) {
+  .nav__logo img { height: 56px; }
+  .nav__logo-text { font-size: 15px; }
+  .nav__inner { gap: 12px; }
+  .hero__title { font-size: 30px; overflow-wrap: break-word; }
+  .hero__badge { font-size: 11px; }
+  .about-grid, .contact-grid { max-width: 100%; overflow-x: clip; }
+  .btn { white-space: normal; text-align: center; }
 }
