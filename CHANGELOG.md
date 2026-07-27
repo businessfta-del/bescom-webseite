@@ -2,3 +2,4 @@
 - fix: 24 Titles auf 50–65 Zeichen, 1 Desc gekürzt, 404-Schema ergänzt; Hinweis: class="topbar" existiert im Design nicht (Site nutzt class="nav") – bewusst nicht eingebaut
 - fix: og:image auf absolute URLs (28 Seiten), ov@bescom.de → info@bescom.de (94 Stellen)
 - perf: JPEGs rekomprimiert (13,8 MB → 8,3 MB, −40 %), 2 ungenutzte Bilder entfernt (Ov_anlage.jpeg, OMU-1.jpg)
+- feat: Chat-Widget an Cookie-Consent 'Externe Medien' gekoppelt (Opt-in, kein Laden vor Zustimmung)

@@ -1,6 +1,7 @@
 /* =========================================================
    BESCom – Cookie Consent Banner
-   Speichert Einwilligung in localStorage
+   Speichert Einwilligung in localStorage und lädt externe
+   Dienste (Chat-Widget) erst nach Zustimmung "Externe Medien".
    ========================================================= */
 
 (function () {
@@ -21,6 +22,25 @@
     } catch {
       // localStorage nicht verfügbar (z.B. iOS Private Mode) – Banner trotzdem schließen
     }
+  }
+
+  /* Aktiviert alle Skripte, die auf die Einwilligung "Externe Medien"
+     warten (z.B. LeadConnector Chat-Widget). Ein blockiertes Template hat
+     type="text/plain" data-cookieconsent="externeMedien" und trägt die
+     echten Attribute als data-src / data-resources-url / data-widget-id. */
+  function loadExterneMedien() {
+    const tpls = document.querySelectorAll(
+      'script[type="text/plain"][data-cookieconsent="externeMedien"]'
+    );
+    tpls.forEach(function (tpl) {
+      if (tpl.dataset.consentActivated) return;
+      tpl.dataset.consentActivated = '1';
+      const s = document.createElement('script');
+      if (tpl.dataset.src)          s.src = tpl.dataset.src;
+      if (tpl.dataset.resourcesUrl) s.setAttribute('data-resources-url', tpl.dataset.resourcesUrl);
+      if (tpl.dataset.widgetId)     s.setAttribute('data-widget-id', tpl.dataset.widgetId);
+      document.body.appendChild(s);
+    });
   }
 
   function hideBanner() {
@@ -45,7 +65,13 @@
   }
 
   function initBanner() {
-    if (getConsent()) return;
+    // Bereits entschieden: gespeicherte Einwilligung anwenden (auf jeder Seite,
+    // auch ohne Banner-Markup wie Impressum/Datenschutz/404).
+    const consent = getConsent();
+    if (consent) {
+      if (consent.externeMedien) loadExterneMedien();
+      return;
+    }
 
     const banner = document.getElementById('cookieBanner');
     if (!banner) return;
@@ -58,6 +84,7 @@
     // Alle akzeptieren
     onBtn('cookieAcceptAll', function () {
       saveConsent(true, true);
+      loadExterneMedien();
       hideBanner();
     });
 
@@ -66,6 +93,7 @@
       const statistiken   = document.getElementById('cookieStatistiken')?.checked ?? false;
       const externeMedien = document.getElementById('cookieExterneMedien')?.checked ?? false;
       saveConsent(statistiken, externeMedien);
+      if (externeMedien) loadExterneMedien();
       hideBanner();
     });
 
