@@ -2304,13 +2304,17 @@ iframe { max-width: 100%; }
   .btn { white-space: normal; text-align: center; }
 }
 
-/* ==== Mobile: Grid-Spalten dürfen schrumpfen, Tabellen scrollen ==== */
+/* ==== Grid-Spalten dürfen schrumpfen, Tabellen scrollen ==== */
 .article-content, .article-sidebar { min-width: 0; }
 .article-layout > * { min-width: 0; }
 .service-detail > * { min-width: 0; }
 
+/* AOS-Scroll-Animationen (fade-left/right) starten mit translateX(±100px);
+   das darf nicht den horizontalen Viewport sprengen. Sektionen kappen den
+   Überhang bei allen Breiten – Sticky-Menü und Layout bleiben unberührt. */
+.section, .contact-section, .article-layout { overflow-x: clip; }
+
 @media (max-width: 640px) {
-  .section, .contact-section, .article-layout { overflow-x: clip; }
   .comparison-table,
   .article-content .comparison-table,
   .article-content table {
@@ -2319,4 +2323,18 @@ iframe { max-width: 100%; }
     -webkit-overflow-scrolling: touch;
   }
   .article-content { overflow-wrap: break-word; }
+}
+
+/* ==== Tablet-Portrait (768–1023px): Inhalts-Grids gestapelt lassen ==== */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .service-detail,
+  .contact-grid,
+  .about-grid { grid-template-columns: 1fr; }
+}
+
+/* ==== Desktop (>=1024px): 2-spaltig, Spalten duerfen schrumpfen ==== */
+@media (min-width: 1024px) {
+  .service-detail { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .contact-grid   { grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr); }
+  .about-grid     { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
 }
