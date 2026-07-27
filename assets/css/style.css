@@ -2059,18 +2059,19 @@ textarea.form-control { resize: vertical; min-height: 120px; }
 
 .hero__phone-row { margin-bottom: 40px; }
 
-.hero__phone {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  color: var(--color-white);
-  font-weight: 600;
-  font-size: 16px;
+/* Hero-Anruf als Outline-Button (oranger Rand, gefüllt bei Hover) –
+   sekundärer CTA neben dem gefüllten Primär-Button */
+.btn--outline-accent {
+  background: transparent;
+  color: var(--color-accent);
+  border-color: var(--color-accent);
 }
 
-.hero__phone strong { text-decoration: underline; text-underline-offset: 3px; }
-
-.hero__phone:hover { color: var(--color-accent); }
+.btn--outline-accent:hover {
+  background: var(--color-accent);
+  color: var(--color-white);
+  border-color: var(--color-accent);
+}
 
 /* Prozess: "In 3 Schritten zur abgenommenen Anlage" */
 .process-grid {
