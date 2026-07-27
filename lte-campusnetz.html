@@ -116,8 +116,10 @@
   }
   </script>
   <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FBRF16PK5K"></script>
-  <script>
+  <!-- Google Analytics – lädt erst nach Einwilligung "Statistiken" -->
+  <script type="text/plain" data-cookieconsent="statistiken" data-async="1"
+    data-src="https://www.googletagmanager.com/gtag/js?id=G-FBRF16PK5K"></script>
+  <script type="text/plain" data-cookieconsent="statistiken">
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());

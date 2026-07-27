@@ -24,19 +24,25 @@
     }
   }
 
-  /* Aktiviert alle Skripte, die auf die Einwilligung "Externe Medien"
-     warten (z.B. LeadConnector Chat-Widget). Ein blockiertes Template hat
-     type="text/plain" data-cookieconsent="externeMedien" und trägt die
-     echten Attribute als data-src / data-resources-url / data-widget-id. */
-  function loadExterneMedien() {
+  /* Aktiviert alle Skripte einer Consent-Kategorie. Blockierte Templates
+     haben type="text/plain" data-cookieconsent="<kategorie>". Externe
+     Skripte tragen die URL in data-src (optional data-async, data-resources-url,
+     data-widget-id), Inline-Skripte (z.B. GA-Config) ihren Code im Textinhalt.
+     Kategorien: "statistiken" (Google Analytics), "externeMedien" (Chat-Widget). */
+  function activateConsent(category) {
     const tpls = document.querySelectorAll(
-      'script[type="text/plain"][data-cookieconsent="externeMedien"]'
+      'script[type="text/plain"][data-cookieconsent="' + category + '"]'
     );
     tpls.forEach(function (tpl) {
       if (tpl.dataset.consentActivated) return;
       tpl.dataset.consentActivated = '1';
       const s = document.createElement('script');
-      if (tpl.dataset.src)          s.src = tpl.dataset.src;
+      if (tpl.dataset.src) {
+        s.src = tpl.dataset.src;
+        if (tpl.dataset.async) s.async = true;
+      } else {
+        s.textContent = tpl.textContent; // Inline-Code (z.B. gtag-Config)
+      }
       if (tpl.dataset.resourcesUrl) s.setAttribute('data-resources-url', tpl.dataset.resourcesUrl);
       if (tpl.dataset.widgetId)     s.setAttribute('data-widget-id', tpl.dataset.widgetId);
       document.body.appendChild(s);
@@ -69,7 +75,8 @@
     // auch ohne Banner-Markup wie Impressum/Datenschutz/404).
     const consent = getConsent();
     if (consent) {
-      if (consent.externeMedien) loadExterneMedien();
+      if (consent.statistiken)   activateConsent('statistiken');
+      if (consent.externeMedien) activateConsent('externeMedien');
       return;
     }
 
@@ -84,7 +91,8 @@
     // Alle akzeptieren
     onBtn('cookieAcceptAll', function () {
       saveConsent(true, true);
-      loadExterneMedien();
+      activateConsent('statistiken');
+      activateConsent('externeMedien');
       hideBanner();
     });
 
@@ -93,7 +101,8 @@
       const statistiken   = document.getElementById('cookieStatistiken')?.checked ?? false;
       const externeMedien = document.getElementById('cookieExterneMedien')?.checked ?? false;
       saveConsent(statistiken, externeMedien);
-      if (externeMedien) loadExterneMedien();
+      if (statistiken)   activateConsent('statistiken');
+      if (externeMedien) activateConsent('externeMedien');
       hideBanner();
     });
 
