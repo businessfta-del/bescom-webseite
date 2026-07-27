@@ -96,6 +96,12 @@
       hideBanner();
     });
 
+    // Ablehnen – nur essenzielle Cookies, keine externen Dienste laden
+    onBtn('cookieRejectAll', function () {
+      saveConsent(false, false);
+      hideBanner();
+    });
+
     // Auswahl speichern
     onBtn('cookieSave', function () {
       const statistiken   = document.getElementById('cookieStatistiken')?.checked ?? false;

@@ -4,3 +4,4 @@
 - perf: JPEGs rekomprimiert (13,8 MB → 8,3 MB, −40 %), 2 ungenutzte Bilder entfernt (Ov_anlage.jpeg, OMU-1.jpg)
 - feat: Chat-Widget an Cookie-Consent 'Externe Medien' gekoppelt (Opt-in, kein Laden vor Zustimmung)
 - feat: Google Analytics an Cookie-Consent 'Statistiken' gekoppelt (Opt-in, kein Tracking vor Zustimmung)
+- feat: Ablehnen-Button im Cookie-Banner (gleichwertig zu Akzeptieren, DSGVO)
