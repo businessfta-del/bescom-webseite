@@ -1392,6 +1392,28 @@ textarea.form-control { resize: vertical; min-height: 120px; }
   font-size: 14px;
 }
 
+/* DSGVO: Ablehnen muss optisch gleichwertig sein wie Akzeptieren */
+#cookieAcceptAll {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(232,98,10,.35);
+}
+#cookieAcceptAll:hover {
+  background: var(--color-accent-dark);
+  border-color: var(--color-accent-dark);
+}
+#cookieRejectAll {
+  background: #4b5563;
+  border-color: #4b5563;
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(0,0,0,.18);
+}
+#cookieRejectAll:hover {
+  background: #374151;
+  border-color: #374151;
+}
+
 .btn--dark {
   background: var(--color-primary);
   color: #fff;
@@ -1440,6 +1462,18 @@ textarea.form-control { resize: vertical; min-height: 120px; }
     font-size: 13px !important;
   }
 }
+
+.cookie-reset-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+  opacity: .8;
+}
+.cookie-reset-btn:hover { opacity: 1; }
 
 /* ---------------------------------------------------------
    20. AOS OVERRIDES

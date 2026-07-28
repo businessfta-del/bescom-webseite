@@ -70,14 +70,20 @@
     });
   }
 
+  var MAX_CONSENT_AGE_MS = 365 * 24 * 60 * 60 * 1000; // 12 Monate (DSGVO-Empfehlung)
+
   function initBanner() {
-    // Bereits entschieden: gespeicherte Einwilligung anwenden (auf jeder Seite,
-    // auch ohne Banner-Markup wie Impressum/Datenschutz/404).
+    // Gespeicherte Einwilligung anwenden – aber nur wenn nicht älter als 12 Monate.
     const consent = getConsent();
     if (consent) {
-      if (consent.statistiken)   activateConsent('statistiken');
-      if (consent.externeMedien) activateConsent('externeMedien');
-      return;
+      var age = Date.now() - (consent.timestamp || 0);
+      if (age < MAX_CONSENT_AGE_MS) {
+        if (consent.statistiken)   activateConsent('statistiken');
+        if (consent.externeMedien) activateConsent('externeMedien');
+        return;
+      }
+      // Einwilligung abgelaufen → löschen und Banner neu zeigen
+      try { localStorage.removeItem(STORAGE_KEY); } catch { /* ignore */ }
     }
 
     const banner = document.getElementById('cookieBanner');
@@ -127,4 +133,39 @@
   } else {
     initBanner();
   }
+
+  window.resetCookieConsent = function () {
+    try { localStorage.removeItem(STORAGE_KEY); } catch { /* ignore */ }
+    const banner = document.getElementById('cookieBanner');
+    if (!banner) return;
+    banner.style.display = '';
+    banner.classList.add('visible');
+    const mobileCta = document.querySelector('.mobile-sticky-cta');
+    if (mobileCta) mobileCta.style.display = 'none';
+    onBtn('cookieAcceptAll', function () {
+      saveConsent(true, true);
+      activateConsent('statistiken');
+      activateConsent('externeMedien');
+      hideBanner();
+    });
+    onBtn('cookieRejectAll', function () {
+      saveConsent(false, false);
+      hideBanner();
+    });
+    onBtn('cookieSave', function () {
+      const statistiken   = document.getElementById('cookieStatistiken')?.checked ?? false;
+      const externeMedien = document.getElementById('cookieExterneMedien')?.checked ?? false;
+      saveConsent(statistiken, externeMedien);
+      if (statistiken)   activateConsent('statistiken');
+      if (externeMedien) activateConsent('externeMedien');
+      hideBanner();
+    });
+    onBtn('cookieIndividual', function () {
+      const extra      = document.getElementById('cookieExtra');
+      const extraMedia = document.getElementById('cookieExtraMedia');
+      const show = extra?.style.display === 'none' || extra?.style.display === '';
+      if (extra)      extra.style.display      = show ? 'flex' : 'none';
+      if (extraMedia) extraMedia.style.display  = show ? 'flex' : 'none';
+    });
+  };
 })();

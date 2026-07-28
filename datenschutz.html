@@ -349,9 +349,42 @@
     </div>
     <div class="footer__bottom">
       <span>© 2025 BESCom Elektronik GmbH · Hamburg</span>
-      <span><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></span>
+      <span><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a> · <button class="cookie-reset-btn" onclick="window.resetCookieConsent()">Cookie-Einstellungen</button></span>
     </div>
   </footer>
+
+  <div id="cookieBanner" class="cookie-banner" role="dialog" aria-label="Datenschutzeinstellungen">
+    <div class="cookie-banner__inner">
+      <div class="cookie-banner__left">
+        <div class="cookie-banner__title">🍪 Datenschutzeinstellungen</div>
+        <p class="cookie-banner__text">
+          Wir nutzen Cookies auf unserer Website. Einige von ihnen sind essenziell, während andere uns helfen, diese Website und Ihre Erfahrung zu verbessern.
+          Wenn Sie unter 16 Jahre alt sind und Ihre Zustimmung zu freiwilligen Diensten geben möchten, müssen Sie Ihre Erziehungsberechtigten um Erlaubnis bitten.
+          Weitere Informationen finden Sie in unserer <a href="datenschutz.html">Datenschutzerklärung</a>.
+        </p>
+        <div class="cookie-banner__checks">
+          <label class="cookie-check">
+            <input type="checkbox" id="cookieEssenziell" checked disabled>
+            Essenziell
+          </label>
+          <label class="cookie-check" id="cookieExtra" style="display:none;">
+            <input type="checkbox" id="cookieStatistiken">
+            Statistiken
+          </label>
+          <label class="cookie-check" id="cookieExtraMedia" style="display:none;">
+            <input type="checkbox" id="cookieExterneMedien">
+            Externe Medien
+          </label>
+        </div>
+      </div>
+      <div class="cookie-banner__actions">
+        <button id="cookieAcceptAll" class="btn btn--primary">Alle akzeptieren</button>
+        <button id="cookieRejectAll" class="btn btn--dark">Ablehnen</button>
+        <button id="cookieSave" class="btn btn--ghost">Auswahl speichern</button>
+        <button id="cookieIndividual" class="btn btn--ghost">Einstellungen</button>
+      </div>
+    </div>
+  </div>
 
   <script src="assets/js/main.js"></script>
   <script src="assets/js/cookie-banner.js"></script>
