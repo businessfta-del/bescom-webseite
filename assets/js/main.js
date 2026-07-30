@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!sections.length) return;
       let current = sections[0];
       sections.forEach(sec => {
-        if (window.scrollY + 160 >= sec.offsetTop) current = sec;
+        if (window.scrollY + 196 >= sec.offsetTop) current = sec;
       });
       anchorTabs.forEach(tab => {
         tab.classList.toggle('active', tab.getAttribute('href') === `#${current?.id}`);

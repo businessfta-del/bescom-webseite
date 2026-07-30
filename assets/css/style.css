@@ -189,11 +189,75 @@ p:last-child { margin-bottom: 0; }
 }
 
 /* ---------------------------------------------------------
+   5b. TOPBAR
+   --------------------------------------------------------- */
+:root { --topbar-h: 36px; }
+
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1100;
+  height: var(--topbar-h);
+  background: var(--color-primary);
+  color: rgba(255,255,255,.85);
+  font-size: 12.5px;
+  font-weight: 500;
+}
+
+.topbar__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  height: 100%;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.topbar__item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+}
+
+.topbar__item--right {
+  margin-left: auto;
+}
+
+.topbar__item--link {
+  color: rgba(255,255,255,.85);
+  text-decoration: none;
+  transition: color .2s;
+}
+.topbar__item--link:hover { color: #fff; }
+
+.topbar__sep {
+  margin: 0 14px;
+  opacity: .4;
+}
+
+.topbar__icon {
+  width: 13px;
+  height: 13px;
+  flex-shrink: 0;
+  opacity: .75;
+}
+
+/* Mobile: Topbar komplett ausblenden – Mobile-Sticky-CTA übernimmt */
+@media (max-width: 767px) {
+  .topbar { display: none; }
+  :root { --topbar-h: 0px; }
+}
+
+/* ---------------------------------------------------------
    6. NAVIGATION
    --------------------------------------------------------- */
 .nav {
   position: fixed;
-  top: 0;
+  top: var(--topbar-h);
   left: 0;
   right: 0;
   z-index: 1000;
@@ -1189,6 +1253,8 @@ textarea.form-control { resize: vertical; min-height: 120px; }
 
 .footer__bottom a { color: rgba(255,255,255,.65); }
 .footer__bottom a:hover { color: var(--color-accent); }
+.footer__ext-link { color: rgba(255,255,255,.65); text-decoration: none; }
+.footer__ext-link:hover { color: var(--color-accent); }
 
 /* ---------------------------------------------------------
    17. ÜBER UNS ABSCHNITT (index.html)
@@ -1245,7 +1311,7 @@ textarea.form-control { resize: vertical; min-height: 120px; }
 .anchor-tabs {
   background: var(--color-primary);
   position: sticky;
-  top: 120px; /* Höhe der fixierten Hauptnavigation (Logo 100px + Padding) */
+  top: calc(var(--topbar-h) + 120px); /* Topbar + Nav-Höhe */
   z-index: 500;
   box-shadow: 0 4px 16px rgba(0,0,0,.15);
 }
