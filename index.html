@@ -30,7 +30,7 @@
   <!-- AOS Animationen -->
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
 
-  <link rel="stylesheet" href="assets/css/style.css?v=20260905b">
+  <link rel="stylesheet" href="assets/css/style.css?v=20260906a">
 
   <!-- Kritisches CSS inline (Above-the-fold) -->
   <style>
@@ -567,6 +567,95 @@
             <span class="trust-badge__name">BODeV Mitglied</span>
             <span class="trust-badge__meta">Bundesverband Objektfunk e.V.</span>
           </span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ======================================================
+       SEKTION 1b – NORMEN- & PFLICHTEN-CHECK (interaktiv)
+       ====================================================== -->
+  <section class="section section--soft normcheck-section" id="normen-check" aria-labelledby="normcheck-title">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <h2 id="normcheck-title">Normen- &amp; Pflichten-Check: <span style="color:var(--color-accent)">Braucht Ihr Gebäude eine BOS-Objektfunkanlage nach DIN&nbsp;14024?</span></h2>
+        <p>In drei kurzen Schritten zur unverbindlichen Ersteinschätzung – ohne Anmeldung, sofortiges Ergebnis.</p>
+      </div>
+
+      <div class="normcheck" id="normCheck" data-aos="fade-up">
+
+        <!-- Fortschritt -->
+        <div class="normcheck__progress" id="normProgress">
+          <div class="normcheck__progress-head">
+            <span class="normcheck__progress-label">Schritt <b id="normStepNum">1</b> von 3</span>
+            <span class="normcheck__progress-pct" id="normPct">33 %</span>
+          </div>
+          <div class="normcheck__track"><div class="normcheck__fill" id="normFill"></div></div>
+        </div>
+
+        <form class="normcheck__form js-normcheck-form" novalidate>
+
+          <!-- STEP 1: Gebäudetyp / Nutzung -->
+          <div class="normcheck__step is-active" data-step="1">
+            <h3 class="normcheck__q">Um welchen Gebäudetyp bzw. welche Nutzung geht es?</h3>
+            <p class="normcheck__hint">Die Nutzungsart ist das wichtigste Kriterium für eine mögliche Objektfunk-Pflicht.</p>
+            <div class="normcheck__cards" role="radiogroup" aria-label="Gebäudetyp" data-field="typ">
+              <button type="button" class="normcheck-opt" data-value="Klinik / Pflegeheim" role="radio" aria-checked="false"><span class="normcheck-opt__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 21h18M3 10h18M3 7l9-4 9 4M6 21V10M18 21V10M12 12v3M10.5 13.5h3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="normcheck-opt__txt"><span class="normcheck-opt__t">Klinik / Pflegeheim</span><span class="normcheck-opt__d">Krankenhaus, Heim, Sozialbau</span></span></button>
+              <button type="button" class="normcheck-opt" data-value="Tiefgarage / Unterniveau" role="radio" aria-checked="false"><span class="normcheck-opt__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="7" width="20" height="14" rx="2" stroke="currentColor" stroke-width="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2M12 12v4M10 14h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span><span class="normcheck-opt__txt"><span class="normcheck-opt__t">Tiefgarage / Unterniveau</span><span class="normcheck-opt__d">Unterirdische Ebenen</span></span></button>
+              <button type="button" class="normcheck-opt" data-value="Logistik / Industrie" role="radio" aria-checked="false"><span class="normcheck-opt__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 21h18M3 21V8l6-4v4l6-4v17M15 21V11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="normcheck-opt__txt"><span class="normcheck-opt__t">Logistik / Industrie</span><span class="normcheck-opt__d">Halle, Lager, Produktion</span></span></button>
+              <button type="button" class="normcheck-opt" data-value="Büro / Verkaufsstätte / Sonderbau" role="radio" aria-checked="false"><span class="normcheck-opt__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 21h18M3 7h18M3 14h18M5 21V7M19 21V7M9 21v-4h6v4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="normcheck-opt__txt"><span class="normcheck-opt__t">Büro / Verkauf / Sonderbau</span><span class="normcheck-opt__d">Verwaltung, Handel, Sonstige</span></span></button>
+            </div>
+          </div>
+
+          <!-- STEP 2: Gebäudeparameter -->
+          <div class="normcheck__step" data-step="2">
+            <h3 class="normcheck__q">Wie sind die Gebäudeparameter?</h3>
+            <p class="normcheck__hint">Fläche und unterirdische Bauteile beeinflussen die Funkdämpfung maßgeblich.</p>
+            <div class="normcheck__cards normcheck__cards--3" role="radiogroup" aria-label="Bruttogeschossfläche" data-field="bgf">
+              <button type="button" class="normcheck-opt normcheck-opt--compact" data-value="< 2.000 m²" role="radio" aria-checked="false"><span class="normcheck-opt__txt"><span class="normcheck-opt__t">&lt; 2.000 m²</span><span class="normcheck-opt__d">Kleines Objekt</span></span></button>
+              <button type="button" class="normcheck-opt normcheck-opt--compact" data-value="2.000–10.000 m²" role="radio" aria-checked="false"><span class="normcheck-opt__txt"><span class="normcheck-opt__t">2.000–10.000 m²</span><span class="normcheck-opt__d">Mittleres Objekt</span></span></button>
+              <button type="button" class="normcheck-opt normcheck-opt--compact" data-value="> 10.000 m²" role="radio" aria-checked="false"><span class="normcheck-opt__txt"><span class="normcheck-opt__t">&gt; 10.000 m²</span><span class="normcheck-opt__d">Großobjekt</span></span></button>
+            </div>
+            <div class="normcheck__toggle-wrap">
+              <span class="normcheck__toggle-label">Untergeschosse / Stahlbeton-Tiefgarage vorhanden?</span>
+              <div class="normcheck__toggle" role="radiogroup" aria-label="Untergeschosse vorhanden" data-field="ug">
+                <button type="button" class="normcheck-toggle" data-value="Ja" role="radio" aria-checked="false">Ja</button>
+                <button type="button" class="normcheck-toggle" data-value="Nein" role="radio" aria-checked="false">Nein</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 3: Bauphase & Behörden-Status -->
+          <div class="normcheck__step" data-step="3">
+            <h3 class="normcheck__q">In welcher Phase befindet sich das Projekt?</h3>
+            <p class="normcheck__hint">So ordnen wir den Behörden- und Handlungsstatus ein.</p>
+            <div class="normcheck__cards" role="radiogroup" aria-label="Projektphase" data-field="phase">
+              <button type="button" class="normcheck-opt" data-value="Behördliche Auflage / Brandschutzkonzept liegt vor" role="radio" aria-checked="false"><span class="normcheck-opt__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10zM9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="normcheck-opt__txt"><span class="normcheck-opt__t">Auflage / Brandschutzkonzept liegt vor</span><span class="normcheck-opt__d">Behörde fordert Objektfunk</span></span></button>
+              <button type="button" class="normcheck-opt" data-value="Entwurfs-/Genehmigungsplanung (HOAI 1–3)" role="radio" aria-checked="false"><span class="normcheck-opt__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 17L9 11L13 15L21 7M21 7H15M21 7V13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="normcheck-opt__txt"><span class="normcheck-opt__t">Entwurfs-/Genehmigungsplanung</span><span class="normcheck-opt__d">HOAI-Leistungsphase 1–3</span></span></button>
+              <button type="button" class="normcheck-opt" data-value="Bestandsobjekt / Prüfung / Anbieterwechsel" role="radio" aria-checked="false"><span class="normcheck-opt__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="normcheck-opt__txt"><span class="normcheck-opt__t">Bestand / Prüfung / Anbieterwechsel</span><span class="normcheck-opt__d">Bestehendes Objekt</span></span></button>
+            </div>
+          </div>
+
+          <!-- Navigation -->
+          <div class="normcheck__nav">
+            <button type="button" class="btn btn--outline-dark normcheck__back" hidden>← Zurück</button>
+            <button type="button" class="btn btn--primary normcheck__next">Weiter →</button>
+          </div>
+
+          <p class="normcheck__err form-error" role="alert" style="display:none;margin-top:16px;"></p>
+        </form>
+
+        <!-- Ergebnis -->
+        <div class="normcheck__result" id="normResult" aria-live="polite">
+          <span class="normcheck__verdict-badge" id="normVerdictBadge"></span>
+          <h3 class="normcheck__verdict-title" id="normVerdictTitle"></h3>
+          <p class="normcheck__verdict-text" id="normVerdictText"></p>
+          <div class="normcheck__summary" id="normSummary"></div>
+          <button type="button" class="btn btn--primary normcheck__cta" id="normCta">Anforderung jetzt mit HF-Fachplaner prüfen ➔</button>
+          <button type="button" class="normcheck__restart" id="normRestart">Check erneut starten</button>
+          <p class="normcheck__disclaimer">Unverbindliche Ersteinschätzung – die tatsächliche Pflicht legt die zuständige Brandschutzdienststelle / Bauaufsicht fest.</p>
         </div>
 
       </div>
@@ -1802,7 +1891,7 @@
     </div>
   </div>
 
-  <script src="assets/js/main.js?v=20260905b"></script>
+  <script src="assets/js/main.js?v=20260906a"></script>
   <script src="assets/js/cookie-banner.js"></script>
   <script>
     // FAQ Accordion

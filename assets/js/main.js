@@ -519,7 +519,323 @@ document.addEventListener('DOMContentLoaded', () => {
     scrollToTop();
   });
 
+  /* --- Öffentliche API: Vorbefüllung aus dem Normen-Check ---- */
+  function selectOption(field, value) {
+    const group = funnel.querySelector('.funnel__options[data-field="' + field + '"]');
+    if (!group) return;
+    group.querySelectorAll('.funnel-opt').forEach(function (o) {
+      const on = o.dataset.value === value;
+      o.classList.toggle('is-selected', on);
+      o.setAttribute('aria-pressed', String(on));
+    });
+  }
+  window.LeadFunnel = {
+    prefill: function (data) {
+      data = data || {};
+      if (data.gebaeudetyp) { state.gebaeudetyp = data.gebaeudetyp; selectOption('gebaeudetyp', data.gebaeudetyp); }
+      if (data.status)      { state.status = data.status; selectOption('status', data.status); }
+      if (data.flaeche) {
+        state.flaeche = data.flaeche;
+        const f = document.getElementById('funnelFlaeche');
+        if (f) f.value = data.flaeche;
+      }
+      /* Direkt zum Kontakt-Schritt springen – Qualifizierung ist erledigt */
+      current = TOTAL;
+      clearError();
+      render();
+    }
+  };
+
   render();
+})();
+
+
+/* =========================================================
+   NORMEN- & PFLICHTEN-CHECK (Vorschlag 1) – "#normCheck"
+   3-Schritt-Self-Qualifier mit Sofort-Verdict + Funnel-Handoff
+   ========================================================= */
+(function () {
+  'use strict';
+
+  const nc = document.getElementById('normCheck');
+  if (!nc) return;
+
+  const TOTAL   = 3;
+  const form    = nc.querySelector('.js-normcheck-form');
+  const steps   = Array.from(nc.querySelectorAll('.normcheck__step'));
+  const fill    = document.getElementById('normFill');
+  const stepNum = document.getElementById('normStepNum');
+  const pct     = document.getElementById('normPct');
+  const backBtn = nc.querySelector('.normcheck__back');
+  const nextBtn = nc.querySelector('.normcheck__next');
+  const errBox  = nc.querySelector('.normcheck__err');
+  const progress= document.getElementById('normProgress');
+  const result  = document.getElementById('normResult');
+
+  const state = { typ: '', bgf: '', ug: '', phase: '' };
+  let current = 1;
+
+  /* --- Auswahl (Cards + Toggle, Single-Select je data-field) - */
+  nc.querySelectorAll('[data-field]').forEach(function (group) {
+    const field = group.dataset.field;
+    group.querySelectorAll('.normcheck-opt, .normcheck-toggle').forEach(function (opt) {
+      opt.addEventListener('click', function () {
+        group.querySelectorAll('.normcheck-opt, .normcheck-toggle').forEach(function (o) {
+          o.classList.remove('is-selected'); o.setAttribute('aria-checked', 'false');
+        });
+        opt.classList.add('is-selected'); opt.setAttribute('aria-checked', 'true');
+        state[field] = opt.dataset.value;
+        clearError();
+        /* Auto-Vorlauf nur bei den reinen Card-Schritten 1 & 3 */
+        if (current === 1) {
+          const at = current;
+          setTimeout(function () { if (current === at) goNext(); }, 240);
+        }
+      });
+    });
+  });
+
+  /* --- Navigation ------------------------------------------- */
+  function render() {
+    steps.forEach(function (s) { s.classList.toggle('is-active', Number(s.dataset.step) === current); });
+    fill.style.width = (current / TOTAL * 100) + '%';
+    stepNum.textContent = current;
+    pct.textContent = Math.round(current / TOTAL * 100) + ' %';
+    backBtn.hidden = current === 1;
+    nextBtn.textContent = current === TOTAL ? 'Ergebnis anzeigen →' : 'Weiter →';
+  }
+
+  function validateStep(step) {
+    if (step === 1 && !state.typ)   return 'Bitte wählen Sie einen Gebäudetyp aus.';
+    if (step === 2 && !state.bgf)   return 'Bitte wählen Sie die Bruttogeschossfläche aus.';
+    if (step === 2 && !state.ug)    return 'Bitte geben Sie an, ob Untergeschosse vorhanden sind.';
+    if (step === 3 && !state.phase) return 'Bitte wählen Sie die Projektphase aus.';
+    return '';
+  }
+
+  function goNext() {
+    const msg = validateStep(current);
+    if (msg) { showError(msg); return; }
+    if (current < TOTAL) { current++; render(); scrollToTop(); }
+    else { showResult(); }
+  }
+  function goBack() { if (current > 1) { current--; clearError(); render(); scrollToTop(); } }
+  function scrollToTop() {
+    const top = nc.getBoundingClientRect().top + window.scrollY - 120;
+    if (window.scrollY > top) window.scrollTo({ top, behavior: 'smooth' });
+  }
+  function showError(msg) { if (errBox) { errBox.textContent = '⚠️ ' + msg; errBox.style.display = 'block'; } }
+  function clearError() { if (errBox) errBox.style.display = 'none'; }
+
+  nextBtn.addEventListener('click', goNext);
+  backBtn.addEventListener('click', goBack);
+
+  /* --- Ergebnis-Logik (transparentes Scoring) --------------- */
+  function computeVerdict() {
+    let score = 0;
+    if (state.typ === 'Klinik / Pflegeheim')        score += 3;
+    if (state.typ === 'Tiefgarage / Unterniveau')   score += 3;
+    if (state.typ === 'Logistik / Industrie')       score += 2;
+    if (state.typ === 'Büro / Verkaufsstätte / Sonderbau') score += 1;
+    if (state.ug === 'Ja')                           score += 2;
+    if (state.bgf === '> 10.000 m²')                 score += 2;
+    else if (state.bgf === '2.000–10.000 m²')        score += 1;
+    if (state.phase === 'Behördliche Auflage / Brandschutzkonzept liegt vor') score += 3;
+
+    if (score >= 5 || state.phase === 'Behördliche Auflage / Brandschutzkonzept liegt vor') {
+      return {
+        level: 'high', badge: 'Hohe Wahrscheinlichkeit',
+        title: 'Hohe Wahrscheinlichkeit für eine DIN-14024-Pflicht & ein BDBOS-Anzeigeverfahren.',
+        text: 'Ihre Angaben deuten stark auf eine Objektfunk-Pflicht hin. Wir empfehlen eine frühzeitige HF-Fachplanung, um Bauverzögerungen und Nachträge zu vermeiden.'
+      };
+    }
+    if (score >= 3) {
+      return {
+        level: 'mid', badge: 'Wahrscheinlich',
+        title: 'Eine Objektfunkanlage ist wahrscheinlich – abhängig vom Brandschutzkonzept.',
+        text: 'Ob eine Pflicht besteht, hängt vom konkreten Brandschutzkonzept und der Einschätzung der Behörde ab. Eine fachliche Prüfung schafft schnell Klarheit.'
+      };
+    }
+    return {
+      level: 'low', badge: 'Einzelfallprüfung',
+      title: 'Keine pauschale Pflicht erkennbar – eine Einzelfallprüfung wird empfohlen.',
+      text: 'Auf Basis Ihrer Angaben ist keine eindeutige Pflicht ableitbar. Die tatsächliche Anforderung ergibt sich aus dem Brandschutzkonzept und der Bauaufsicht.'
+    };
+  }
+
+  /* Mapping Normen-Check → Lead-Funnel */
+  const TYP_MAP = {
+    'Klinik / Pflegeheim': 'Sonderbau/Klinik',
+    'Tiefgarage / Unterniveau': 'Tiefgarage',
+    'Logistik / Industrie': 'Industrie/Mall',
+    'Büro / Verkaufsstätte / Sonderbau': 'Gewerbe'
+  };
+  const PHASE_MAP = {
+    'Behördliche Auflage / Brandschutzkonzept liegt vor': 'Auflagenbescheid liegt vor',
+    'Entwurfs-/Genehmigungsplanung (HOAI 1–3)': 'Planung/Ausschreibung läuft',
+    'Bestandsobjekt / Prüfung / Anbieterwechsel': 'Bestandsanlage/Wartung'
+  };
+  const BGF_MAP = { '< 2.000 m²': '1500', '2.000–10.000 m²': '6000', '> 10.000 m²': '12000' };
+
+  function showResult() {
+    const v = computeVerdict();
+    result.className = 'normcheck__result is-active normcheck__result--' + v.level;
+    document.getElementById('normVerdictBadge').textContent = v.badge;
+    document.getElementById('normVerdictTitle').textContent = v.title;
+    document.getElementById('normVerdictText').textContent = v.text;
+
+    const chips = [state.typ, state.bgf, state.ug === 'Ja' ? 'Mit Untergeschoss' : 'Ohne Untergeschoss', state.phase]
+      .filter(Boolean)
+      .map(function (t) { return '<span class="badge">' + t + '</span>'; }).join('');
+    document.getElementById('normSummary').innerHTML = chips;
+
+    if (form) form.style.display = 'none';
+    if (progress) progress.style.display = 'none';
+    scrollToTop();
+  }
+
+  /* --- CTA: Übergabe an den Lead-Funnel --------------------- */
+  document.getElementById('normCta').addEventListener('click', function () {
+    if (window.LeadFunnel && typeof window.LeadFunnel.prefill === 'function') {
+      window.LeadFunnel.prefill({
+        gebaeudetyp: TYP_MAP[state.typ] || '',
+        status: PHASE_MAP[state.phase] || '',
+        flaeche: BGF_MAP[state.bgf] || ''
+      });
+    }
+    const target = document.getElementById('projekt-funnel');
+    if (target) {
+      const top = target.getBoundingClientRect().top + window.scrollY - 100;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+
+  /* --- Neustart --------------------------------------------- */
+  document.getElementById('normRestart').addEventListener('click', function () {
+    state.typ = state.bgf = state.ug = state.phase = '';
+    nc.querySelectorAll('.is-selected').forEach(function (o) { o.classList.remove('is-selected'); o.setAttribute('aria-checked', 'false'); });
+    result.className = 'normcheck__result';
+    if (form) form.style.display = '';
+    if (progress) progress.style.display = '';
+    current = 1; clearError(); render(); scrollToTop();
+  });
+
+  render();
+})();
+
+
+/* =========================================================
+   LEAD-MAGNET DOWNLOADS (Vorschlag 2) – "[data-leadmagnet]"
+   Delegierter Trigger → barrierefreies Modal → Webhook →
+   sofortiger PDF-Download. Rollout-sicher (nur wenn Trigger da).
+   ========================================================= */
+(function () {
+  'use strict';
+  const triggers = document.querySelectorAll('[data-leadmagnet]');
+  if (!triggers.length) return;
+
+  let lastFocus = null;
+
+  function buildModal(data) {
+    const overlay = document.createElement('div');
+    overlay.className = 'lm-modal-overlay';
+    overlay.innerHTML =
+      '<div class="lm-modal" role="dialog" aria-modal="true" aria-labelledby="lmTitle">' +
+      '  <button class="lm-modal__close" aria-label="Schließen" type="button">✕</button>' +
+      '  <span class="lm-modal__eyebrow">Kostenloser Fach-Download</span>' +
+      '  <h3 id="lmTitle">' + data.title + '</h3>' +
+      '  <p class="lm-modal__sub">Bitte hinterlassen Sie kurz Ihre Kontaktdaten – Sie erhalten den Download sofort.</p>' +
+      '  <form class="lm-modal__form" novalidate>' +
+      '    <div class="lm-modal__row">' +
+      '      <div><label>Vorname <sup>*</sup></label><input type="text" name="vorname" autocomplete="given-name"></div>' +
+      '      <div><label>Nachname <sup>*</sup></label><input type="text" name="nachname" autocomplete="family-name"></div>' +
+      '    </div>' +
+      '    <label>Geschäftliche E-Mail <sup>*</sup></label>' +
+      '    <input type="email" name="email" autocomplete="email" placeholder="name@firma.de">' +
+      '    <label>Firma <span class="lm-opt">(optional)</span></label>' +
+      '    <input type="text" name="firma" autocomplete="organization" placeholder="Unternehmen">' +
+      '    <label class="lm-modal__check"><input type="checkbox" name="dsgvo"> <span>Ich stimme der Kontaktaufnahme gemäß <a href="' + data.dspath + '" target="_blank" rel="noopener">Datenschutzerklärung</a> zu. <sup>*</sup></span></label>' +
+      '    <p class="lm-modal__err" role="alert" style="display:none;"></p>' +
+      '    <button type="submit" class="btn btn--primary lm-modal__submit">' + data.cta + '</button>' +
+      '  </form>' +
+      '</div>';
+    document.body.appendChild(overlay);
+    document.body.style.overflow = 'hidden';
+
+    const box = overlay.querySelector('.lm-modal');
+    const form = overlay.querySelector('.lm-modal__form');
+    const err = overlay.querySelector('.lm-modal__err');
+
+    function close() {
+      overlay.remove();
+      document.body.style.overflow = '';
+      document.removeEventListener('keydown', onKey);
+      if (lastFocus) lastFocus.focus();
+    }
+    function onKey(e) {
+      if (e.key === 'Escape') close();
+      if (e.key === 'Tab') {
+        const f = box.querySelectorAll('button, input, a[href]');
+        if (!f.length) return;
+        const first = f[0], last = f[f.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      }
+    }
+    overlay.addEventListener('click', e => { if (e.target === overlay) close(); });
+    overlay.querySelector('.lm-modal__close').addEventListener('click', close);
+    document.addEventListener('keydown', onKey);
+    setTimeout(() => { const i = form.querySelector('input'); if (i) i.focus(); }, 30);
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const vorname = form.vorname.value.trim();
+      const nachname = form.nachname.value.trim();
+      const email = form.email.value.trim();
+      const firma = form.firma.value.trim();
+      const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      let msg = '';
+      if (!vorname || !nachname) msg = 'Bitte geben Sie Vor- und Nachnamen an.';
+      else if (!emailOk) msg = 'Bitte geben Sie eine gültige E-Mail-Adresse an.';
+      else if (!form.dsgvo.checked) msg = 'Bitte bestätigen Sie die Datenschutzerklärung.';
+      if (msg) { err.textContent = '⚠️ ' + msg; err.style.display = 'block'; return; }
+
+      /* Best-effort-Versand ans bestehende Lead-Handling */
+      try {
+        fetch(CONTACT_WEBHOOK_URL, {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            typ: 'lead-magnet', magnet: data.id,
+            vorname, nachname, email, firma, seite: window.location.href
+          })
+        }).catch(function () {});
+      } catch (e2) { /* offline – Download trotzdem anzeigen */ }
+
+      box.innerHTML =
+        '<button class="lm-modal__close" aria-label="Schließen" type="button">✕</button>' +
+        '<div class="lm-modal__success">' +
+        '  <div class="lm-modal__check-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></div>' +
+        '  <h3>Vielen Dank!</h3>' +
+        '  <p>Ihr Download steht bereit. Ein Objektfunk-Ingenieur meldet sich bei Rückfragen innerhalb von 24 Stunden.</p>' +
+        '  <a href="' + data.pdf + '" class="btn btn--primary" download target="_blank" rel="noopener">' + data.cta + '</a>' +
+        '</div>';
+      box.querySelector('.lm-modal__close').addEventListener('click', close);
+      const dl = box.querySelector('a[download]'); if (dl) dl.focus();
+    });
+  }
+
+  triggers.forEach(function (t) {
+    t.addEventListener('click', function () {
+      lastFocus = t;
+      buildModal({
+        id: t.dataset.leadmagnet,
+        title: t.dataset.title || 'Fach-Download',
+        cta: t.dataset.cta || 'Jetzt herunterladen (PDF)',
+        pdf: t.dataset.pdf,
+        dspath: t.dataset.ds || '/datenschutz.html'
+      });
+    });
+  });
 })();
 
 
