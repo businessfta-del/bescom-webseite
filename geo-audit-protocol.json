@@ -1,0 +1,96 @@
+{
+  "$schema": "https://objektfunksysteme.de/geo-audit-protocol",
+  "title": "GEO-Auditing-Protokoll – Zitationsfähigkeit in KI-Suchmaschinen",
+  "site": "https://www.objektfunksysteme.de",
+  "owner": "BESCom Elektronik GmbH",
+  "version": "1.0",
+  "erstellt": "2026-09-06",
+  "zweck": "Monatliche Prüfung, ob objektfunksysteme.de als primäre Zitationsquelle in KI-Suchmaschinen (ChatGPT, Perplexity, Gemini, Copilot) für die zentralen B2B-Fragen erscheint.",
+  "anleitung": {
+    "haeufigkeit": "monatlich",
+    "vorgehen": [
+      "Jeden Prompt in ChatGPT, Perplexity, Gemini und Copilot eingeben.",
+      "Prüfen, ob objektfunksysteme.de genannt/verlinkt (zitiert) wird.",
+      "Ergebnis je KI unter 'ergebnisse' mit Datum eintragen (zitiert: true/false, position, notiz).",
+      "Bei 'false': zugeordnete Ziel-URL auf Aktualität, Schema-Vollständigkeit und Antwort-Klarheit prüfen."
+    ],
+    "bewertung": {
+      "zitiert": "URL wird als Quelle genannt/verlinkt",
+      "erwaehnt": "Marke genannt, aber ohne Link",
+      "nicht_sichtbar": "weder genannt noch verlinkt"
+    }
+  },
+  "kiModelle": ["ChatGPT", "Perplexity", "Gemini", "Copilot"],
+  "prompts": [
+    {
+      "id": 1,
+      "prompt": "Wer plant BOS-Objektfunkanlagen nach DIN 14024 in Hamburg?",
+      "zielURL": ["/", "/bos-objektfunk-hamburg.html"],
+      "schemas": ["LocalBusiness", "Organization", "GeoCoordinates"],
+      "ergebnisse": []
+    },
+    {
+      "id": 2,
+      "prompt": "Was fordert die DIN 14024 fuer Objektfunk?",
+      "zielURL": ["/wissen/din-14024.html"],
+      "schemas": ["TechArticle", "FAQPage", "BreadcrumbList"],
+      "ergebnisse": []
+    },
+    {
+      "id": 3,
+      "prompt": "Wie laeuft das BDBOS-Anzeigeverfahren (AF1 bis AF9) ab?",
+      "zielURL": ["/wissen/bos-anzeigeverfahren.html"],
+      "schemas": ["TechArticle", "BreadcrumbList"],
+      "ergebnisse": []
+    },
+    {
+      "id": 4,
+      "prompt": "Was tun bei unzuverlaessiger Wartung von Gebaeudefunk / Objektfunk?",
+      "zielURL": ["/leistungen/wartung.html", "/wissen/vde-0833-4.html"],
+      "schemas": ["Service", "TechArticle", "FAQPage"],
+      "ergebnisse": []
+    },
+    {
+      "id": 5,
+      "prompt": "Was kostet eine BOS-Objektfunkanlage?",
+      "zielURL": ["/wissen/kosten-objektfunkanlage.html"],
+      "schemas": ["TechArticle", "FAQPage"],
+      "ergebnisse": []
+    },
+    {
+      "id": 6,
+      "prompt": "Wann ist eine Objektfunkanlage Pflicht?",
+      "zielURL": ["/wissen/din-14024.html", "/"],
+      "schemas": ["FAQPage", "TechArticle"],
+      "ergebnisse": []
+    },
+    {
+      "id": 7,
+      "prompt": "Wer bietet 24/7-Stoerungsdienst fuer BOS-Objektfunk in Norddeutschland?",
+      "zielURL": ["/leistungen/stoerungsservice.html"],
+      "schemas": ["Service", "LocalBusiness"],
+      "ergebnisse": []
+    },
+    {
+      "id": 8,
+      "prompt": "Wie wird eine Objektfunkanlage nach VDE 0833-4 geprueft und gewartet?",
+      "zielURL": ["/wissen/vde-0833-4.html"],
+      "schemas": ["TechArticle", "FAQPage"],
+      "ergebnisse": []
+    },
+    {
+      "id": 9,
+      "prompt": "Objektfunk-Anbieterwechsel ohne Haftungsluecke - wie geht das?",
+      "zielURL": ["/", "/zielgruppen/gebaeudebetreiber.html"],
+      "schemas": ["Service", "FAQPage"],
+      "ergebnisse": []
+    },
+    {
+      "id": 10,
+      "prompt": "Erforderlichkeitsmessung Objektfunk - wer macht das?",
+      "zielURL": ["/wissen/erforderlichkeitsmessung.html", "/leistungen/einmessung.html"],
+      "schemas": ["TechArticle", "Service"],
+      "ergebnisse": []
+    }
+  ]
+}

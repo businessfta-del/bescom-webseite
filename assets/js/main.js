@@ -3,9 +3,20 @@
    Vanilla JS – kein jQuery, kein Framework
    ========================================================= */
 
-/* Webhook-Endpoint für das Kontaktformular (z.B. n8n) –
-   hier die eigene Domain eintragen: */
-const CONTACT_WEBHOOK_URL = 'https://DEINE-N8N-DOMAIN/webhook/kontaktformular';
+/* =========================================================
+   LEAD-ENDPOINT (zentral) – GoHighLevel (GHL)
+   ---------------------------------------------------------
+   Ziel-URL für ALLE Lead-Kanäle:
+     • Projekt-Funnel (Startseite)
+     • Normen-Check → Funnel-Übergabe
+     • PDF-Lead-Magnet-Modal
+     • Rückruf-/Exit-Intent-Modal
+   TODO(GHL): Sobald das GoHighLevel-Formular/Webhook live ist,
+   hier die Inbound-Webhook-URL eintragen. Bis dahin Platzhalter –
+   Downloads/Interaktionen funktionieren, Lead-Daten werden noch
+   NICHT zugestellt.
+   ========================================================= */
+const CONTACT_WEBHOOK_URL = 'https://DEINE-GHL-WEBHOOK-URL/inbound';
 
 document.addEventListener('DOMContentLoaded', () => {
 
