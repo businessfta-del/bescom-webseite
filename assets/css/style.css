@@ -3843,6 +3843,32 @@ iframe { max-width: 100%; }
 .expert-cta__actions .btn { min-height: 48px; }
 @media (max-width: 520px) { .expert-cta__actions .btn { width: 100%; justify-content: center; } }
 
+/* --- Proof-Metrik-Grid & Vorher/Nachher (Case Studies, Vorschlag 4) --- */
+.proof-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin: 24px 0 10px; }
+@media (min-width: 780px) { .proof-grid { grid-template-columns: repeat(4, 1fr); } }
+.proof-card { background: #fff; border: 1px solid var(--color-border); border-top: 3px solid var(--color-accent); border-radius: var(--radius-md); padding: 20px 16px; text-align: center; }
+.proof-card__ic { width: 40px; height: 40px; margin: 0 auto 10px; border-radius: 10px; background: linear-gradient(135deg, var(--color-accent), var(--color-accent-dark)); color: #fff; display: flex; align-items: center; justify-content: center; }
+.proof-card__ic svg { width: 20px; height: 20px; }
+.proof-card__val { font-size: 19px; font-weight: 800; color: var(--color-primary); line-height: 1.15; }
+.proof-card__label { font-size: 12px; color: var(--color-text-muted); margin-top: 5px; }
+.proof-card--status { background: var(--color-primary); border-color: var(--color-primary); }
+.proof-card--status .proof-card__val, .proof-card--status .proof-card__label { color: #fff; }
+.proof-card--status .proof-card__ic { background: #fff; color: var(--color-accent); }
+
+.ba-compare { display: grid; grid-template-columns: 1fr; gap: 16px; margin: 26px 0; }
+@media (min-width: 760px) { .ba-compare { grid-template-columns: 1fr 1fr; } }
+.ba-col { border-radius: var(--border-radius); padding: 22px 24px; border: 1px solid var(--color-border); }
+.ba-col--before { background: #fdf6f4; border-color: #f0d5cd; }
+.ba-col--after { background: #f2f8f4; border-color: #cfe6d6; }
+.ba-col__tag { display: inline-block; font-size: 11px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; padding: 4px 12px; border-radius: 100px; margin-bottom: 14px; }
+.ba-col--before .ba-col__tag { background: #d9482f; color: #fff; }
+.ba-col--after .ba-col__tag { background: var(--color-accent); color: var(--color-primary); }
+.ba-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+.ba-list li { position: relative; padding-left: 28px; font-size: 14px; line-height: 1.5; color: var(--color-text); }
+.ba-list li::before { position: absolute; left: 0; top: 1px; width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; }
+.ba-list--x li::before { content: '✕'; background: #d9482f; color: #fff; }
+.ba-list--check li::before { content: '✓'; background: #16a34a; color: #fff; }
+
 /* Hub-Karten nutzen .pillar-grid / .pillar-card */
 
 /* Glossar */
