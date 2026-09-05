@@ -3798,6 +3798,51 @@ iframe { max-width: 100%; }
 .expert-box p { font-size: 13.5px; color: var(--color-text-muted); line-height: 1.55; margin: 0; }
 .expert-box__meta { margin-top: 10px; font-size: 12px; color: var(--color-text-muted); font-family: var(--font-mono); }
 
+/* --- Experten-Ansprechpartner-Card (E-E-A-T, Vorschlag 3) --- */
+.expert-cta {
+  display: grid;
+  grid-template-columns: 1fr;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  max-width: 900px;
+  margin: 0 auto;
+}
+@media (min-width: 720px) { .expert-cta { grid-template-columns: 200px 1fr; } }
+.expert-cta__aside {
+  background: linear-gradient(160deg, var(--color-primary), #16305a);
+  display: flex; align-items: center; justify-content: center;
+  padding: 34px 20px;
+}
+.expert-cta__avatar {
+  width: 88px; height: 88px; border-radius: 50%;
+  background: rgba(255,255,255,.08);
+  border: 2px solid rgba(255,255,255,.18);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--color-accent);
+}
+.expert-cta__avatar svg { width: 44px; height: 44px; }
+.expert-cta__body { padding: 30px 32px; }
+.expert-cta__eyebrow { color: var(--color-accent); font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.expert-cta__title { font-size: clamp(19px, 2.4vw, 23px); color: var(--color-primary); margin: 6px 0 8px; }
+.expert-cta__text { font-size: 14.5px; color: var(--color-text-muted); line-height: 1.6; margin: 0 0 16px; }
+.expert-cta__badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+.expert-cta__badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 12px; font-weight: 700; color: var(--color-primary);
+  background: rgba(var(--color-accent-rgb), .08);
+  border: 1px solid rgba(var(--color-accent-rgb), .3);
+  padding: 5px 12px; border-radius: 100px;
+}
+.expert-cta__badge::before { content: '✓'; color: var(--color-accent); font-weight: 800; }
+.expert-cta__sla { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: var(--color-text); margin: 0 0 18px; }
+.expert-cta__sla svg { width: 16px; height: 16px; color: var(--color-accent); flex-shrink: 0; }
+.expert-cta__actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.expert-cta__actions .btn { min-height: 48px; }
+@media (max-width: 520px) { .expert-cta__actions .btn { width: 100%; justify-content: center; } }
+
 /* Hub-Karten nutzen .pillar-grid / .pillar-card */
 
 /* Glossar */
