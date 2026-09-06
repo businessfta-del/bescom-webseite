@@ -3032,7 +3032,19 @@ iframe { max-width: 100%; }
   margin-bottom: 24px;
 }
 .hero-home__eyebrow .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--color-accent); flex-shrink: 0; animation: pulse 2s infinite; }
-.hero-home__eyebrow .norm { font-family: var(--font-mono); font-weight: 700; color: #fff; }
+.hero-home__eyebrow .norm { font-family: var(--font-mono); font-weight: 700; color: #fff; white-space: nowrap; }
+
+/* Zertifizierungs-Badge auf schmalen Screens sauber als Textblock (statt gequetschter Pille) */
+@media (max-width: 600px) {
+  .hero-home__eyebrow {
+    display: block;
+    position: relative;
+    border-radius: 14px;
+    line-height: 1.6;
+    padding: 11px 16px 11px 32px;
+  }
+  .hero-home__eyebrow .dot { position: absolute; left: 15px; top: 17px; }
+}
 
 .hero-home__title {
   color: #fff;
