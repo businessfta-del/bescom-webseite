@@ -643,6 +643,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* --- Ergebnis-Logik (transparentes Scoring) --------------- */
   function computeVerdict() {
+    /* Sonderfall: Die anfordernde Stelle fordert zunächst eine Erforderlichkeits-
+       messung. Deren Ergebnis entscheidet über die Pflicht UND den Anlagentyp
+       (TMO / DMO / TMOa / Anbindung nach Metropol-Konzept). */
+    if (state.phase === 'Erforderlichkeitsmessung gefordert') {
+      return {
+        level: 'high', badge: 'Erforderlichkeitsmessung',
+        title: 'Der richtige nächste Schritt ist die Erforderlichkeitsmessung.',
+        text: 'Die anfordernde Stelle (Feuerwehr / Brandschutzdienststelle) entscheidet anhand der Messergebnisse, ob – und in welcher Ausführung (TMO, DMO, TMOa oder Anbindung nach dem Metropol-Konzept) – eine BOS-Objektfunkanlage erforderlich ist. Wir führen die Messung durch und liefern Ihnen den prüffähigen Nachweis zur Vorlage bei der Behörde.'
+      };
+    }
     let score = 0;
     if (state.typ === 'Klinik / Pflegeheim')        score += 3;
     if (state.typ === 'Tiefgarage / Unterniveau')   score += 3;
@@ -682,6 +692,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'Büro / Verkaufsstätte / Sonderbau': 'Gewerbe'
   };
   const PHASE_MAP = {
+    'Erforderlichkeitsmessung gefordert': 'Planung/Ausschreibung läuft',
     'Behördliche Auflage / Brandschutzkonzept liegt vor': 'Auflagenbescheid liegt vor',
     'Entwurfs-/Genehmigungsplanung (HOAI 1–3)': 'Planung/Ausschreibung läuft',
     'Bestandsobjekt / Prüfung / Anbieterwechsel': 'Bestandsanlage/Wartung'
