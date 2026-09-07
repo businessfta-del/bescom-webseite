@@ -16,7 +16,7 @@
    Downloads/Interaktionen funktionieren, Lead-Daten werden noch
    NICHT zugestellt.
    ========================================================= */
-const CONTACT_WEBHOOK_URL = 'https://DEINE-GHL-WEBHOOK-URL/inbound';
+const CONTACT_WEBHOOK_URL = 'https://n8n-ujih.srv1675981.hstgr.cloud/webhook/bescom-lead';
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -177,6 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
+            typ: 'kontakt',
             name,
             firma,
             telefon,
