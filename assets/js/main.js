@@ -418,29 +418,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  /* --- Datei-Auswahl / Drag&Drop ---------------------------- */
-  const fileInput = document.getElementById('funnelFile');
-  const fileName  = document.getElementById('funnelFileName');
-  const dropzone  = funnel.querySelector('.funnel__upload');
-  if (fileInput && fileName) {
-    fileInput.addEventListener('change', function () {
-      fileName.textContent = fileInput.files.length ? fileInput.files[0].name : 'Datei auswählen oder hierher ziehen';
-    });
-  }
-  if (dropzone && fileInput) {
-    ['dragover', 'dragenter'].forEach(function (ev) {
-      dropzone.addEventListener(ev, function (e) { e.preventDefault(); dropzone.style.borderColor = 'var(--color-primary)'; });
-    });
-    ['dragleave', 'drop'].forEach(function (ev) {
-      dropzone.addEventListener(ev, function (e) { e.preventDefault(); dropzone.style.borderColor = ''; });
-    });
-    dropzone.addEventListener('drop', function (e) {
-      if (e.dataTransfer && e.dataTransfer.files.length) {
-        fileInput.files = e.dataTransfer.files;
-        fileName.textContent = e.dataTransfer.files[0].name;
-      }
-    });
-  }
 
   /* --- Navigation ------------------------------------------- */
   function render() {
