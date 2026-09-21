@@ -506,6 +506,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (progress) progress.style.display = 'none';
     if (success) success.classList.add('is-active');
     scrollToTop();
+
+    /* Normen-Check zurücksetzen – Ergebnis ist nach Absenden nicht mehr relevant */
+    const normRestart = document.getElementById('normRestart');
+    if (normRestart) normRestart.click();
   });
 
   /* --- Öffentliche API: Vorbefüllung aus dem Normen-Check ---- */
